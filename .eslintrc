@@ -1,10 +1,29 @@
 {
-  "extends": ["eslint:recommended", "plugin:react/recommended", "plugin:jest/recommended"],
-  "parser": "babel-eslint",
-  "env": {
-      "browser": true,
-      "node": true,
-      "jest": true
+  "plugins": ["react"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recomended"
+  ],
+  "rules": {
+    "no-console": "off",
+    "indent": [ "error", 2 ],
+    "quotes": [ "error", "single" ],
+    "semi": ["error", "always"],
+    "linebreak-style": [ "error", "unix" ]
   },
-  "plugins": ["jest"]
+  "env": {
+    "node": true,
+    "es6": true,
+    "browser": true,
+    "jest": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "impliedStrict": true,
+      "experimentalObjectRestSpread": true,
+    }
+  }
 }
