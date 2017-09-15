@@ -2,7 +2,7 @@
   "plugins": ["react"],
   "extends": [
     "eslint:recommended",
-    "plugin:react/recomended"
+    "plugin:react/recommended"
   ],
   "rules": {
     "no-console": "off",
