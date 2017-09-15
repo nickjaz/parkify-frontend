@@ -6,7 +6,7 @@ import {Redirect, Link} from 'react-router-dom'
 import Icon from '../icon-component'
 import Avatar from '../avatar'
 import {tokenSet} from '../../action/auth-actions.js'
-import * as util from '../../lib/util.js'
+import * as util from '../../lib/utilities.js'
 import * as authActions from '../../action/auth-actions.js'
 import {profileFetchRequest} from '../../action/profile-actions.js'
 
