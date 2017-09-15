@@ -31,7 +31,7 @@ class Navbar extends React.Component {
 
   validateRoute(props){
     let {match, history} = props
-    let token = util.readCookie('parkify-token')
+    let token = util.readCookie('Parkify-Token')
 
     if(!token){
       return history.replace('/welcome/signup')
