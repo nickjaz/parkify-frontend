@@ -64,8 +64,11 @@ class Navbar extends React.Component {
           <div className='panel'>
             <nav>
               <ul>
-                <NavLink route='settings' url={url} />
-                <NavLink route='dashboard' url={url} />
+                <NavLink route='nav link' url={url} />
+                <NavLink route='nav link' url={url} />
+                <NavLink route='nav link' url={url} />
+                <NavLink route='nav link' url={url} />
+
               </ul>
             </nav>
           </div>
