@@ -4,7 +4,7 @@ export const search = function (results) {
   return {
     type: 'SEARCH',
     payload: results
-  }
+  };
 };
 
 export const searchRequest = (query) => (dispatch, getState) => {
@@ -14,6 +14,6 @@ export const searchRequest = (query) => (dispatch, getState) => {
   .set('Authorization', `Bearer ${state.token}`)
   .end(function (error, response) {
     let results = response.body.results;
-    dispatch(search(results))
+    dispatch(search(results));
   });
 };

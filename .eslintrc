@@ -6,7 +6,7 @@
   ],
   "rules": {
     "no-console": "off",
-    "indent": [ "error", 2 ],
+    "indent": [ "error", 2, { "MemberExpression": 0 } ],
     "quotes": [ "error", "single" ],
     "semi": ["error", "always"],
     "linebreak-style": [ "error", "unix" ]
@@ -23,7 +23,11 @@
     "ecmaFeatures": {
       "jsx": true,
       "impliedStrict": true,
-      "experimentalObjectRestSpread": true,
+      "experimentalObjectRestSpread": true
     }
+  },
+  "globals": {
+    "__API_URL__": false,
+    "__DEBUG__": false
   }
 }

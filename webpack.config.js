@@ -76,7 +76,7 @@ module.exports = {
       },
       {
         test: /\.(jpg|jpeg|gif|png|tiff|svg)$/,
-        exclude: /\glyph.svg$/,
+        exclude: /\.glyph.svg$/,
         use: [
           {
             loader: 'url-loader',
@@ -89,7 +89,7 @@ module.exports = {
       },
       {
         test: /\.(mp3|aac|aiff|wav|flac|m4a|mp4|ogg|ape)$/,
-        exclude: /\glyph.svg$/,
+        exclude: /\.glyph.svg$/,
         use: [
           {
             loader: 'file-loader',
@@ -101,4 +101,4 @@ module.exports = {
       }
     ]
   }
-}
+};
