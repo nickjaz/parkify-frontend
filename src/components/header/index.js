@@ -20,7 +20,7 @@ class Header extends React.Component {
   render() {
     return (
       <section className='header'>
-        <button onClick={this.state.toggleNav}>Nav</button>
+        <button onClick={this.state.toggleNav}>Nav Icon</button>
         {
           //Logo go here
         }
