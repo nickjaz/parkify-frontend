@@ -53,33 +53,19 @@ class Navbar extends React.Component {
   render(){
     let {url} = this.props.match
     return (
-      <header className='navbar'>
-        <main>
-        <Icon className='logo' name='tick' />
-        <h1>cfgram</h1>
-
-        {util.renderIf(this.props.loggedIn,
-          <div className='panel'>
-            <nav>
-              <ul>
-                <NavLink route='nav link' url={url} />
-                <NavLink route='nav link' url={url} />
-                <NavLink route='nav link' url={url} />
-                <NavLink route='nav link' url={url} />
-
-              </ul>
-            </nav>
-          </div>
-        )}
-
-        </main>
-
-        {util.renderIf(this.props.loggedIn,
-          <button onClick={this.handleLogout}>logout</button>
-        )}
-      </header>
-    )
-  }
+      <nav>
+        <ul>
+          <NavLink route='nav link' url={url} />
+          <NavLink route='nav link' url={url} />
+          <NavLink route='nav link' url={url} />
+          <NavLink route='nav link' url={url} />
+        </ul>
+      </nav>
+    )}
+    
+    {util.renderIf(this.props.loggedIn,
+    <button onClick={this.handleLogout}>logout</button>
+  )}
 }
 
 let mapStateToProps = (state) => ({
