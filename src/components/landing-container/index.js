@@ -1,9 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import AuthForm from '../auth-form';
-import * as util from '../../lib/util.js';
+import * as util from '../../lib/utilities.js';
 import {signupRequest, loginRequest} from '../../actions/auth-actions.js';
-import {fetchProfileRequest} from '../../actions/user-actions';
+import {fetchProfileRequest} from '../../actions/profile-actions.js';
+import PropTypes from 'prop-types';
 
 class LandingContainer extends React.Component {
   constructor(props) {
@@ -25,15 +26,15 @@ class LandingContainer extends React.Component {
     return this.props.login(user)
     .then(() => fetchProfile())
     .then(() => history.push('/search'))
-    .catch(uitl.logError);
+    .catch(util.logError);
   }
 
   handleSignup(user) {
     return this.props.signup(user)
     .then(() => {
-      this.props.history.push('/settings')
+      this.props.history.push('/settings');
     })
-    .catch(util.logError)
+    .catch(util.logError);
   }
 
   render() {
@@ -53,6 +54,16 @@ class LandingContainer extends React.Component {
     );
   }
 }
+
+LandingContainer.propTypes = {
+  auth: PropTypes.string,
+  profile: PropTypes.object,
+  history: PropTypes.object,
+  fetchProfile: PropTypes.func,
+  login: PropTypes.func,
+  signup: PropTypes.func,
+  match: PropTypes.object
+};
 
 let mapStateToProps = (state) => ({
   auth: state.auth,
