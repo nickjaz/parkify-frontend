@@ -12,7 +12,8 @@
     ],
     "quotes": [ "error", "single" ],
     "semi": ["error", "always"],
-    "linebreak-style": [ "error", "unix" ]
+    "linebreak-style": [ "error", "unix" ],
+    "react/prop-types": [0]
   },
   "env": {
     "node": true,

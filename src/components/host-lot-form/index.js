@@ -28,7 +28,7 @@ class HostLotForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     console.log('state:', this.state);
-    // this.props.onComplete({ ...this.state });
+    this.props.onComplete(this.state);
   }
 
   render() {
@@ -83,7 +83,7 @@ class HostLotForm extends React.Component {
           onChange={this.handleHostLotFormChange}
         />
 
-        <button type='submit'>BUTTON</button>
+        <button type='submit'>{this.props.buttonText}</button>
       </form>
     );
   }
