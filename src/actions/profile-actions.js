@@ -22,7 +22,7 @@ export const createProfileRequest = (profile) => (dispatch, getState) => {
 
 export const updateProfileRequest = (profile) => (dispatch, getState) => {
   let {auth} = getState();
-  return superagent.put(`${__API_URL__}/profiles.${profile._id}`)
+  return superagent.put(`${__API_URL__}/profiles/${profile._id}`)
   .set('Authorization', `Bearer ${auth}`)
   .then( res => {
     dispatch(updateProfile(res.body))

@@ -1,5 +1,5 @@
 import React from 'react';
-import * as util from '../../lib/util.js';
+import * as utilities from '../../lib/utilities.js';
 
 class AuthForm extends React.Component {
   constructor(props) {
@@ -33,13 +33,13 @@ class AuthForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.onComplete(this.state)
-      .then(() => {
-        this.setState({ name: '', password: '', email: '' });
-      })
-      .catch( error => {
-        console.error(error);
-        this.setState({error});
-      });
+    .then(() => {
+      this.setState({ name: '', password: '', email: '' });
+    })
+    .catch( error => {
+      console.error(error);
+      this.setState({error});
+    });
   }
 
   render() {
@@ -48,7 +48,7 @@ class AuthForm extends React.Component {
         onSubmit={this.handleSubmit}
         className='auth-form'>
 
-        {util.renderIf(this.props.auth === 'signup',
+        {utilities.renderIf(this.props.auth === 'signup',
           <input
             type='text'
             name='email'

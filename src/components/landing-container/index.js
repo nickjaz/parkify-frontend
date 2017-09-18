@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import AuthForm from '../auth-form';
-import * as util from '../../lib/util.js';
+import * as utilities from '../../lib/utilities.js';
 import {signupRequest, loginRequest} from '../../actions/auth-actions.js';
 import {fetchProfileRequest} from '../../actions/user-actions';
 
@@ -33,7 +33,7 @@ class LandingContainer extends React.Component {
     .then(() => {
       this.props.history.push('/settings')
     })
-    .catch(util.logError)
+    .catch(utilities.logError)
   }
 
   render() {
