@@ -11,4 +11,4 @@ export default store => next => action => {
     console.error('__ERROR__', error);
     return error;
   }
-}
+};

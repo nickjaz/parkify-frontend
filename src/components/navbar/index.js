@@ -1,14 +1,14 @@
 import './_navbar.scss';
-import React from 'react'
-import {connect} from 'react-redux'
-import {Redirect, Link} from 'react-router-dom'
+import React from 'react';
+import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 
-import Icon from '../icon-component'
-import Avatar from '../avatar'
-import {tokenSet} from '../../action/auth-actions.js'
-import * as util from '../../lib/utilities.js'
-import * as authActions from '../../action/auth-actions.js'
-import {profileFetchRequest} from '../../action/profile-actions.js'
+import {setToken} from '../../actions/auth-actions.js';
+import * as util from '../../lib/utilities.js';
+import * as authActions from '../../actions/auth-actions.js';
+import {profileFetchRequest} from '../../actions/profile-actions.js';
+
+import PropTypes from 'prop-types';
 
 let NavLink = (props) => (
   <li className={util.classToggler({selected: props.url === `/${props.route}` })} >
@@ -16,86 +16,84 @@ let NavLink = (props) => (
       {props.route}
     </Link>
   </li>
-)
+);
 
 class Navbar extends React.Component {
   constructor(props){
-    super(props)
-    this.validateRoute = this.validateRoute.bind(this)
-    this.handleLogout = this.handleLogout.bind(this)
+    super(props);
+    this.validateRoute = this.validateRoute.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
   }
 
-  componentDidMount(){
-    this.validateRoute(this.props)
+  componentDidMount() {
+    this.validateRoute(this.props);
   }
 
-  validateRoute(props){
-    let {match, history} = props
-    let token = util.readCookie('Parkify-Token')
+  validateRoute(props) {
+    let {match, history} = props;
+    let token = util.readCookie('X-Parkify-Token');
 
     if(!token){
-      return history.replace('/welcome/signup')
+      return history.replace('/welcome/signup');
     }
+    this.props.setToken(token);
 
-    this.props.tokenSet(token)
     this.props.profileFetch()
     .catch(() => {
-      console.log('PROFILE FETCH ERROR: user does not have a profile')
+      console.log('PROFILE FETCH ERROR: user does not have a profile');
       if(!match.url.startsWith('/settings')){
-        return history.replace('/settings')
+        return history.replace('/settings');
       }
-    })
+    });
   }
 
-  handleLogout(){
-    this.props.logout()
-    this.props.history.push('/welcome/login')
+  handleLogout() {
+    this.props.logout();
+    this.props.history.push('/welcome/login');
   }
 
-  render(){
-    let {url} = this.props.match
+  render() {
+    let {url} = this.props.match;
     return (
-      <header className='navbar'>
-        <main>
-        <Icon className='logo' name='tick' />
-        <h1>cfgram</h1>
-
-        {util.renderIf(this.props.loggedIn,
-          <div className='panel'>
-            <nav>
-              <ul>
-                <NavLink route='nav link' url={url} />
-                <NavLink route='nav link' url={url} />
-                <NavLink route='nav link' url={url} />
-                <NavLink route='nav link' url={url} />
-
-              </ul>
-            </nav>
-          </div>
-        )}
-
-        </main>
-
-        {util.renderIf(this.props.profile,
-          <Avatar profile={this.props.profile} />)}
+      <nav>
+        <ul>
+          <NavLink route='nav link' url={url} />
+          <NavLink route='nav link' url={url} />
+          <NavLink route='nav link' url={url} />
+          <NavLink route='nav link' url={url} />
+        </ul>
 
         {util.renderIf(this.props.loggedIn,
           <button onClick={this.handleLogout}>logout</button>
         )}
-      </header>
-    )
+      </nav>
+    );
   }
 }
+
+Navbar.propTypes = {
+  loggedIn: PropTypes.bool,
+  logout: PropTypes.func,
+  match: PropTypes.object,
+  history: PropTypes.object,
+  profileFetch: PropTypes.func,
+  setToken: PropTypes.func,
+};
+
+NavLink.propTypes = {
+  url: PropTypes.string,
+  route: PropTypes.string
+};
 
 let mapStateToProps = (state) => ({
   loggedIn: !!state.auth,
   profile: state.profile,
-})
+});
 
 let mapDispatchToProps = (dispatch) => ({
   logout: () => dispatch(authActions.logout()),
-  tokenSet: (token) => dispatch(tokenSet(token)),
+  setToken: (token) => dispatch(setToken(token)),
   profileFetch: () => dispatch(profileFetchRequest()),
-})
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(Navbar)
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
