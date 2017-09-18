@@ -3,12 +3,10 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Redirect, Link} from 'react-router-dom';
 
-import Icon from '../icon-component';
-import Avatar from '../avatar';
-import {tokenSet} from '../../action/auth-actions.js';
+import {tokenSet} from '../../actions/auth-actions.js';
 import * as util from '../../lib/utilities.js';
-import * as authActions from '../../action/auth-actions.js';
-import {profileFetchRequest} from '../../action/profile-actions.js';
+import * as authActions from '../../actions/auth-actions.js';
+import {profileFetchRequest} from '../../actions/profile-actions.js';
 
 let NavLink = (props) => (
   <li className={util.classToggler({selected: props.url === `/${props.route}` })} >
@@ -31,7 +29,7 @@ class Navbar extends React.Component {
 
   validateRoute(props){
     let {match, history} = props;
-    let token = util.readCookie('Parkify-Token');
+    let token = util.readCookie('X-Parkify-Token');
 
     if(!token){
       return history.replace('/welcome/signup');
@@ -75,9 +73,6 @@ class Navbar extends React.Component {
         )}
 
         </main>
-
-        {util.renderIf(this.props.profile,
-          <Avatar profile={this.props.profile} />)}
 
         {util.renderIf(this.props.loggedIn,
           <button onClick={this.handleLogout}>logout</button>
