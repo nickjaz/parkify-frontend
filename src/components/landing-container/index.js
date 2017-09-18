@@ -25,7 +25,7 @@ class LandingContainer extends React.Component {
     return this.props.login(user)
     .then(() => fetchProfile())
     .then(() => history.push('/search'))
-    .catch(uitl.logError);
+    .catch(utilities.logError);
   }
 
   handleSignup(user) {
