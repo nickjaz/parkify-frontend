@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import AuthForm from '../auth-form';
-import * as util from '../../lib/util.js';
+import * as util from '../../lib/utilities.js';
 import {signupRequest, loginRequest} from '../../actions/auth-actions.js';
 import {fetchProfileRequest} from '../../actions/user-actions';
 
@@ -25,7 +25,7 @@ class LandingContainer extends React.Component {
     return this.props.login(user)
     .then(() => fetchProfile())
     .then(() => history.push('/search'))
-    .catch(uitl.logError);
+    .catch(util.logError);
   }
 
   handleSignup(user) {
