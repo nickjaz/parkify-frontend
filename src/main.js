@@ -10,7 +10,7 @@ let AppContainer = () => {
     <Provider store={createStore()}>
       <App />
     </Provider>
-  )
-}
+  );
+};
 
 ReactDom.render(<AppContainer />, document.getElementById('root'));

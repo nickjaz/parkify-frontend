@@ -4,9 +4,6 @@
     "eslint:recommended",
     "plugin:react/recommended"
   ],
-  "globals": {
-    "__API_URL__": false
-  },
   "rules": {
     "no-console": "off",
     "indent": [ "error", 2, {
@@ -16,10 +13,7 @@
     ],
     "quotes": [
       "error",
-      "single",
-      {
-        "allowTemplateLiterals": true
-      }
+      "single", { "allowTemplateLiterals": true }
     ],
     "semi": ["error", "always"],
     "linebreak-style": [ "error", "unix" ],
@@ -38,7 +32,11 @@
     "ecmaFeatures": {
       "jsx": true,
       "impliedStrict": true,
-      "experimentalObjectRestSpread": true,
+      "experimentalObjectRestSpread": true
     }
+  },
+  "globals": {
+    "__API_URL__": false,
+    "__DEBUG__": false
   }
 }

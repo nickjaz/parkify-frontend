@@ -1,6 +1,10 @@
 import {combineReducers} from 'redux';
-import hostLots from './host-lot-reducers.js';
+import searchReducer from './search-reducer.js';
+import profileReducer from './profile-reducer.js';
+import hostLotsReducer from './host-lot-reducers.js';
 
 export default combineReducers({
-  hostLots
+  nearbyLots: searchReducer,
+  profile: profileReducer,
+  hostLots: hostLotsReducer
 });
