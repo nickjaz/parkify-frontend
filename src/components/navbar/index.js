@@ -62,7 +62,6 @@ class Navbar extends React.Component {
         </ul>
       </nav>
     )}
-    
     {util.renderIf(this.props.loggedIn,
     <button onClick={this.handleLogout}>logout</button>
   )}
