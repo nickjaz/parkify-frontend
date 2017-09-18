@@ -1,5 +1,6 @@
 import React from 'react';
-import * as util from '../../lib/util.js';
+import * as util from '../../lib/utilities.js';
+import PropTypes from 'prop-types';
 
 class AuthForm extends React.Component {
   constructor(props) {
@@ -33,13 +34,13 @@ class AuthForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.onComplete(this.state)
-      .then(() => {
-        this.setState({ name: '', password: '', email: '' });
-      })
-      .catch( error => {
-        console.error(error);
-        this.setState({error});
-      });
+    .then(() => {
+      this.setState({ name: '', password: '', email: '' });
+    })
+    .catch( error => {
+      console.error(error);
+      this.setState({error});
+    });
   }
 
   render() {
@@ -79,5 +80,10 @@ class AuthForm extends React.Component {
     );
   }
 }
+
+AuthForm.propTypes = {
+  auth: PropTypes.string,
+  onComplete: PropTypes.func
+};
 
 export default AuthForm;
