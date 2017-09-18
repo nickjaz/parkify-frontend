@@ -4,7 +4,7 @@ import {BrowserRouter, Route} from 'react-router-dom';
 import Search from '../search';
 
 import LandingContainer from '../landing-continer';
-import {setToken} from '../../action/auth-actions.js';
+import {setToken} from '../../actions/auth-actions.js';
 import {fetchProfileRequest} from '../../actions/profile-actions.js';
 
 import Navbar from '../navbar';
