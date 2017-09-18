@@ -1,5 +1,6 @@
 import './_modal.scss';
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Modal extends React.Component {
   render() {
@@ -10,8 +11,13 @@ class Modal extends React.Component {
           {this.props.children}
         </main>
       </section>
-    )
+    );
   }
 }
+
+Modal.propTypes = {
+  children: PropTypes.array,
+  close: PropTypes.func
+};
 
 export default Modal;

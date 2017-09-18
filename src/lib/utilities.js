@@ -1,22 +1,22 @@
 export const log = (...args) =>
-__DEBUG__ ? console.log(...args) : undefined;
+  __DEBUG__ ? console.log(...args) : undefined;
 
 export const logError = (...args) =>
-__DEBUG__ ? console.error(...args) : undefined;
+  __DEBUG__ ? console.error(...args) : undefined;
 
 export const renderIf = (test, component) => test ? component : undefined;
 
 export const classToggler = (options) => 
-Object.keys(options).filter(key => Boolean(options)).join(' ');
+  Object.keys(options).filter(() => Boolean(options)).join(' ');
 
 export const map = (list, ...args) =>
-Array.prototype.map.apply(list, args);
+  Array.prototype.map.apply(list, args);
 
 export const filter = (list, ...args) =>
-Array.prototype.filter.apply(list, args);
+  Array.prototype.filter.apply(list, args);
 
 export const reduce = (list, ...args) =>
-Array.prototype.reduce.apply(list, args);
+  Array.prototype.reduce.apply(list, args);
 
 export const photoToDataURL = (file) => {
   return new Promise((resolve, reject) => {
@@ -36,7 +36,7 @@ export const photoToDataURL = (file) => {
     
     return reject(new Error('USAGE ERROR: requires file'));
   });
-}
+};
 
 // https://stackoverflow.com/questions/14573223/set-cookie-and-get-cookie-with-javascript
 export const readCookie = (name) => {
@@ -56,18 +56,20 @@ export const readCookie = (name) => {
   }
 
   return null;
-}
+};
 
 export const createCookie = (name,value,days) => {
-	if (days) {
-		var date = new Date();
-		date.setTime(date.getTime()+(days*24*60*60*1000));
-		var expires = "; expires="+date.toGMTString();
-	}
-	else var expires = "";
-	document.cookie = name+"="+value+expires+"; path=/";
-}
+  let expires = '';
+
+  if (days) {
+    var date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    expires = '; expires=' + date.toGMTString();
+  }
+
+  document.cookie = name + '=' + value + expires + '; path=/';
+};
 
 export const deleteCookie  = (name) => {
-	createCookie(name,"",-1);
-}
+  createCookie(name, '', -1);
+};
