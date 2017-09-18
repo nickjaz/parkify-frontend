@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {BrowserRouter, Route} from 'react-router-dom';
+import Search from '../search';
 
 import LandingContainer from '../landing-continer';
 import {setToken} from '../../action/auth-actions.js';
@@ -11,7 +12,11 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <div className='parkify'>
-          <Route exact path='/welcome/:auth' component={LandingContainer} />
+          <main>
+            <Route exact path='/welcome/:auth' component={LandingContainer} />
+            <Route exact path='/search' component={Search} />
+          </main>
+
         </div>
       </BrowserRouter>
     );

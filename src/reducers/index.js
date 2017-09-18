@@ -1,6 +1,8 @@
 import {combineReducers} from 'redux';
-import profile from './profile-reducer.js';
+import searchReducer from './search-reducer.js';
+import profileReducer from './profile-reducer.js';
 
 export default combineReducers({
-  profile
+  nearbyLots: searchReducer,
+  profile: profileReducer
 });
