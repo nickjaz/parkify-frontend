@@ -64,3 +64,4 @@ render() {
     </form>
   )
 }
+export default CarForm;
