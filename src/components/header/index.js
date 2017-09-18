@@ -1,13 +1,26 @@
 import './_header.scss';
 import React from 'react';
 
-import Navbar from '../navbar';
-
 class Header extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.toggleNav = this.toggleNav.bind(this);
+    this.state = {
+      navOpen: false
+    };
+  }
+
+  toggleNav() {
+    this.navOpen
+    ? this.setState({navOpen: false})
+    : this.setState({navOpen: true });
+  }
+
   render() {
     return (
       <section className='header'>
-        <Navbar />
+        <button onClick={this.state.toggleNav}>Nav</button>
         {
           //Logo go here
         }
