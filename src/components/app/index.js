@@ -7,16 +7,19 @@ import LandingContainer from '../landing-continer';
 import {setToken} from '../../action/auth-actions.js';
 import {fetchProfileRequest} from '../../actions/profile-actions.js';
 
+import Navbar from '../navbar';
+
+
 class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
         <div className='parkify'>
           <main>
+            <Route exact path='*' component={Navbar} />
             <Route exact path='/welcome/:auth' component={LandingContainer} />
             <Route exact path='/search' component={Search} />
           </main>
-
         </div>
       </BrowserRouter>
     );
