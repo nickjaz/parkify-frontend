@@ -1,10 +1,6 @@
 import React from 'react';
-<<<<<<< HEAD
 import * as utilities from '../../lib/utilities.js';
-=======
-import * as util from '../../lib/utilities.js';
 import PropTypes from 'prop-types';
->>>>>>> f8a07022e5fa8adfe2c4d2768e1524d51ef054dd
 
 class AuthForm extends React.Component {
   constructor(props) {
