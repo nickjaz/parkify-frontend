@@ -1,7 +1,7 @@
 import superagent from 'superagent';
 
 export const fetchLots = (lots) => ({
-  type: 'DISPLAY_LOTS',
+  type: 'FETCH_LOTS',
   payload: lots
 });
 

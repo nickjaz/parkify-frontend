@@ -6,7 +6,10 @@
   ],
   "rules": {
     "no-console": "off",
-    "indent": [ "error", 2 ],
+    "indent": [ "error", 2, {
+      "SwitchCase": 1
+      }
+    ],
     "quotes": [ "error", "single" ],
     "semi": ["error", "always"],
     "linebreak-style": [ "error", "unix" ]
@@ -17,6 +20,7 @@
     "browser": true,
     "jest": true
   },
+  "parser": "babel-eslint",
   "parserOptions": {
     "ecmaVersion": 6,
     "sourceType": "module",
