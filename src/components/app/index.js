@@ -4,7 +4,7 @@ import {BrowserRouter, Route} from 'react-router-dom';
 
 import LandingContainer from '../landing-continer';
 import {setToken} from '../../action/auth-actions.js';
-import {fetchProfileRequest} from '../../action/profile-actions.js';
+import {fetchProfileRequest} from '../../actions/profile-actions.js';
 
 class App extends React.Component {
   render() {
