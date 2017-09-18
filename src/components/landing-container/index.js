@@ -3,22 +3,45 @@ import {connect} from 'react-redux';
 import UserForm from '../user-form';
 import * as util from '../../lib/util.js';
 import {signupRequest, loginRequest} from '../../action/auth-actions.js';
-import {profileFetchRequest} from '../../action/user-actions';
+import {fetchProfileRequest} from '../../action/user-actions';
 
 class LandingContainer extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.handleLogin = this.handleLogin.bind(this);
+    this.handleSignup = this.handleSignup.bind(this);
+  }
+
   componentWillReceiveProps(props) {
     if(props.auth && props.profile)
-      props.history.replace('/home');
+      props.history.replace('/search');
     if(props.auth && !props.profile)
       props.history.replace('/settings');
+  }
+
+  handleLogin(user) {
+    let {fetchProfile, history} = this.props;
+    return this.props.login(user)
+    .then(() => fetchProfile())
+    .then(() => history.push('/search'))
+    .catch(uitl.logError);
+  }
+
+  handleSignup(user) {
+    return this.props.signup(user)
+    .then(() => {
+      this.props.history.push('/settings')
+    })
+    .catch(util.logError)
   }
 
   render() {
     let {params} = this.props.match;
 
     let handleComplete = params.auth === 'login'
-      ? this.props.login
-      : this.props.signupRequest
+      ? this.handleLogin
+      : this.handSignup
 
     return (
       <div>
@@ -40,7 +63,7 @@ let mapDispatchToProps = (dispatch) => {
   return {
     signup: (user) => dispatch(signupRequest(user)),
     login: (user) => dispatch(loginRequest(user)),
-    profileFetch: () => dispatch(profileFetchRequest())
+    fetchProfile: () => dispatch(fetchProfileRequest())
   };
 };
 
