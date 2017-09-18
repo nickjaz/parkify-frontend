@@ -7,6 +7,7 @@ button {
   margin-right: 20px;
   float: left;
   font-size: 3vw;
+  cursor: pointer;
 }
 
 .header {
@@ -30,5 +31,15 @@ button {
 
   button {
     display: none;
+  }
+}
+
+.logout {
+  float: right;
+  margin-right: 2vw;
+  cursor: pointer;
+
+  &:hover {
+    color: #aaa;
   }
 }
