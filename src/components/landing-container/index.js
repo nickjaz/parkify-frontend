@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import AuthForm from '../auth-form';
 import * as utilities from '../../lib/utilities.js';
 import {signupRequest, loginRequest} from '../../actions/auth-actions.js';
-import {fetchProfileRequest} from '../../actions/user-actions';
+import {fetchProfileRequest} from '../../actions/profile-actions';
 
 class LandingContainer extends React.Component {
   constructor(props) {
@@ -41,7 +41,7 @@ class LandingContainer extends React.Component {
 
     let handleComplete = params.auth === 'login'
       ? this.handleLogin
-      : this.handSignup;
+      : this.handleSignup;
 
     return (
       <div>

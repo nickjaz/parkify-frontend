@@ -36,7 +36,7 @@ class Navbar extends React.Component {
     }
 
     this.props.tokenSet(token);
-    this.props.profileFetch();
+    this.props.profileFetch()
     .catch(() => {
       console.log('PROFILE FETCH ERROR: user does not have a profile');
       if(!match.url.startsWith('/settings')){
@@ -51,7 +51,8 @@ class Navbar extends React.Component {
   }
 
   render(){
-    let {url} = this.props.match
+    let {url} = this.props.match;
+
     return (
       <nav>
         <ul>
@@ -61,11 +62,8 @@ class Navbar extends React.Component {
           <NavLink route='nav link' url={url} />
         </ul>
       </nav>
-    )}
-    
-    {util.renderIf(this.props.loggedIn,
-    <button onClick={this.handleLogout}>logout</button>
-  )}
+    );
+  }
 }
 
 let mapStateToProps = (state) => ({
