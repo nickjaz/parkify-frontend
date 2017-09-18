@@ -7,7 +7,7 @@ export const setToken = (token) => ({
 })
 
 export const logout = () => {
-  util.deleteCookie('Parkify-Token')
+  util.deleteCookie('X-Parkify-Token')
   return { type: 'LOGOUT' }
 }
 
