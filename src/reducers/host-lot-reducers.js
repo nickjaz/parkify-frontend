@@ -13,5 +13,7 @@ export default (state=[], action) => {
 
     case 'DELETE_LOT':
       return state.filter(lot => lot._id !== payload.id);
+
+    default: return state;
   }
 };
