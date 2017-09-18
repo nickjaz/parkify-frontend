@@ -1,11 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import * as util from '../../lib/util.js';
+import * as util from '../../lib/utilities.js';
 
 import {fetchLotsRequest, createLotRequest} from '../../actions/host-lot-actions.js';
 import HostLotForm from '../host-lot-form';
 import HostLotItem from '../host-lot-item';
-
 
 class HostContainer extends React.Component {
   constructor(props) {
@@ -14,7 +13,7 @@ class HostContainer extends React.Component {
 
   componentDidMount() {
     this.props.fetchHostLots()
-      .catch(util.logError);
+    .catch(util.logError);
   }
 
   render() {
@@ -25,7 +24,7 @@ class HostContainer extends React.Component {
           buttonText='Add Lot'
           onComplete={(lot) => {
             return this.props.createLot(lot)
-              .catch(console.error);
+            .catch(console.error);
           }}
         />
 

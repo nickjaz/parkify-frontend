@@ -4,13 +4,23 @@
     "eslint:recommended",
     "plugin:react/recommended"
   ],
+  "globals": {
+    "__API_URL__": false
+  },
   "rules": {
     "no-console": "off",
     "indent": [ "error", 2, {
-      "SwitchCase": 1
+      "SwitchCase": 1,
+      "MemberExpression": 0
       }
     ],
-    "quotes": [ "error", "single" ],
+    "quotes": [
+      "error",
+      "single",
+      {
+        "allowTemplateLiterals": true
+      }
+    ],
     "semi": ["error", "always"],
     "linebreak-style": [ "error", "unix" ],
     "react/prop-types": [0]

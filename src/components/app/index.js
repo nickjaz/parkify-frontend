@@ -6,9 +6,9 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <div className='parkify'>
-            <Content>
-            </Content>
-            <Footer />
+          <Content>
+          </Content>
+          <Footer />
         </div>
       </BrowserRouter>
     );
