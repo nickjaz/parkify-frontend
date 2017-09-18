@@ -15,8 +15,10 @@ class CarForm extends React.Component {
   }
 
   handleChange(e) {
-  let {make, model, color, licensePlate} = e.target;
-
+  let {name, value,} = e.target;
+  this.setState({
+    [name]: value
+  })
   }
 }
 
