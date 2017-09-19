@@ -12,39 +12,35 @@ class LandingContainer extends React.Component {
   constructor(props) {
     super(props);
 
-    this.handleLogin = this.handleLogin.bind(this);
-    this.handleSignup = this.handleSignup.bind(this);
+    this.validateRoute = this.validateRoute.bind(this);
   }
 
-  componentWillReceiveProps(props) {
-    if(props.auth && props.profile)
-      props.history.replace('/search');
-    if(props.auth && !props.profile)
-      props.history.replace('/settings');
+  componentDidMount() {
+    this.validateRoute(this.props);
+    let header = document.getElementsByTagName('header')[0];
+    header.classList.add('hidden');
   }
 
-  handleLogin(user) {
-    let {fetchProfile, history} = this.props;
-    return this.props.login(user)
-    .then(() => fetchProfile())
-    .then(() => history.push('/search'))
-    .catch(utilities.logError);
+  componentWillUnmount() {
+    let header = document.getElementsByTagName('header')[0];
+    header.classList.remove('hidden');
   }
 
-  handleSignup(user) {
-    return this.props.signup(user)
-    .then(() => {
-      this.props.history.push('/settings');
-    })
-    .catch(utilities.logError);
+  validateRoute(props) {
+    let {history} = props;
+    let token = utilities.readCookie('X-Parkify-Token');
+
+    if (token){
+      history.replace('/search');
+    }
   }
 
   render() {
     let {params} = this.props.match;
 
     let handleComplete = params.auth === 'login'
-      ? this.handleLogin
-      : this.handleSignup;
+      ? this.props.login
+      : this.props.signup;
 
     return (
       <div className='landing-container'>
