@@ -3,6 +3,7 @@ import React from 'react';
 import * as util from '../../lib/utilities.js';
 import PropTypes from 'prop-types';
 import GoogleOAuth from '../google-oauth';
+import {withRouter} from 'react-router-dom';
 
 class AuthForm extends React.Component {
   constructor(props) {
@@ -48,14 +49,7 @@ class AuthForm extends React.Component {
 
   redirectToSignup(e) {
     e.preventDefault();
-    this.props.onComplete(this.state)
-    .then(() => {
-      this.setState({ name: '', password: '', email: '' });
-    })
-    .catch( error => {
-      console.error(error);
-      this.setState({error});
-    });
+    this.props.history.push('/welcome/signup');
   }
 
   render() {
@@ -103,7 +97,8 @@ class AuthForm extends React.Component {
 
 AuthForm.propTypes = {
   auth: PropTypes.string,
-  onComplete: PropTypes.func
+  onComplete: PropTypes.func,
+  history: PropTypes.object
 };
 
-export default AuthForm;
+export default withRouter(AuthForm);
