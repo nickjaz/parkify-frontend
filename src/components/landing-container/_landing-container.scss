@@ -21,6 +21,8 @@ nav {
   text-align: center;
   margin-left: 15px;
   display: inline-block;
+  user-select: none;
+  cursor: default;
 }
 
 #title-container {
