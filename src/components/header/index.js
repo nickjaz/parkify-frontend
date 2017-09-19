@@ -1,6 +1,5 @@
 import './_header.scss';
 import React from 'react';
-import Modal from '../modal';
 import Navbar from '../navbar';
 import {connect} from 'react-redux';
 
