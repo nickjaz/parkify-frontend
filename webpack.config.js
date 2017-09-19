@@ -35,7 +35,7 @@ module.exports = {
   output: {
     path: `${__dirname}/build`,
     filename: 'bundle-[hash].js',
-    publicPath: '/'
+    publicPath: process.env.CDN_URL
   },
   module: {
     rules: [
@@ -63,7 +63,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.(woff|woff2|ttf|eot|glyph)$/,
+        test: /\.(woff|woff2|ttf|eot|glyph|\.svg)$/,
         use: [
           {
             loader: 'url-loader',
@@ -75,7 +75,8 @@ module.exports = {
         ]
       },
       {
-        test: /\.(jpg|jpeg|gif|png|tiff)$/,
+        test: /\.(jpg|jpeg|gif|png|tiff|svg)$/,
+        exclude: /\.glyph.svg$/,
         use: [
           {
             loader: 'url-loader',
@@ -88,6 +89,7 @@ module.exports = {
       },
       {
         test: /\.(mp3|aac|aiff|wav|flac|m4a|mp4|ogg|ape)$/,
+        exclude: /\.glyph.svg$/,
         use: [
           {
             loader: 'file-loader',
