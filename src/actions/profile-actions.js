@@ -1,12 +1,12 @@
 import superagent from 'superagent';
 
 export const createProfile = (profile) => ({
-  type: 'PROFILE_CREATE',
+  type: 'CREATE_PROFILE',
   payload: profile
 });
 
 export const updateProfile = (profile) => ({
-  type: 'PROFILE_UPDATE',
+  type: 'UPDATE_PROFILE',
   payload: profile
 });
 
@@ -15,9 +15,9 @@ export const createProfileRequest = (profile) => (dispatch, getState) => {
   return superagent.post(`${__API_URL__}/profile`)
   .set('Authorization', `Bearer ${auth}`)
   .send(profile)
-  .then( res => {
-    dispatch(createProfile(res.body));
-    return res;
+  .then( response => {
+    dispatch(createProfile(response.body));
+    return response;
   });
 };
 
@@ -26,18 +26,18 @@ export const updateProfileRequest = (profile) => (dispatch, getState) => {
   return superagent.put(`${__API_URL__}/profile/${profile._id}`)
   .set('Authorization', `Bearer ${auth}`)
   .send(profile)
-  .then( res => {
-    dispatch(updateProfile(res.body));
-    return res;
+  .then( response => {
+    dispatch(updateProfile(response.body));
+    return response;
   });
 };
 
-export const fetchProfileRequest = (profile) => (dispatch, getState) => {
+export const fetchProfileRequest = () => (dispatch, getState) => {
   let {auth} = getState();
-  return superagent.get(`${__API_URL__}/profile/${profile._id}`)
+  return superagent.get(`${__API_URL__}/profile`)
   .set('Authorization', `Bearer ${auth}`)
-  .then( res => {
-    dispatch(createProfile(res.body));
-    return res;
+  .then( response => {
+    dispatch(createProfile(response.body));
+    return response;
   });
 };
