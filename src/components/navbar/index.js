@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom';
 import {setToken} from '../../actions/auth-actions.js';
 import * as util from '../../lib/utilities.js';
 import * as authActions from '../../actions/auth-actions.js';
-import {profileFetchRequest} from '../../actions/profile-actions.js';
+import {fetchProfileRequest} from '../../actions/profile-actions.js';
 
 import PropTypes from 'prop-types';
 
@@ -37,8 +37,7 @@ class Navbar extends React.Component {
       return history.replace('/welcome/signup');
     }
     this.props.setToken(token);
-
-    this.props.profileFetch()
+    this.props.fetchProfile()
     .catch(() => {
       console.log('PROFILE FETCH ERROR: user does not have a profile');
       if(!match.url.startsWith('/settings')){
@@ -76,7 +75,7 @@ Navbar.propTypes = {
   logout: PropTypes.func,
   match: PropTypes.object,
   history: PropTypes.object,
-  profileFetch: PropTypes.func,
+  fetchProfile: PropTypes.func,
   setToken: PropTypes.func,
 };
 
@@ -93,7 +92,7 @@ let mapStateToProps = (state) => ({
 let mapDispatchToProps = (dispatch) => ({
   logout: () => dispatch(authActions.logout()),
   setToken: (token) => dispatch(setToken(token)),
-  profileFetch: () => dispatch(profileFetchRequest()),
+  fetchProfile: () => dispatch(fetchProfileRequest()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

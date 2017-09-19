@@ -9,6 +9,10 @@
   background-size: cover;
 }
 
+nav {
+  display: none;
+}
+
 #title {
   font-family: 'Roboto Condensed', sans-serif;
   color: white;
@@ -17,6 +21,8 @@
   text-align: center;
   margin-left: 15px;
   display: inline-block;
+  user-select: none;
+  cursor: default;
 }
 
 #title-container {
