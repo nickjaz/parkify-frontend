@@ -21,29 +21,7 @@ let NavLink = (props) => (
 class Navbar extends React.Component {
   constructor(props){
     super(props);
-    this.validateRoute = this.validateRoute.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
-  }
-
-  componentDidMount() {
-    this.validateRoute(this.props);
-  }
-
-  validateRoute(props) {
-    let {match, history} = props;
-    let token = util.readCookie('X-Parkify-Token');
-
-    if(!token){
-      return history.replace('/welcome/signup');
-    }
-    this.props.setToken(token);
-    this.props.fetchProfile()
-    .catch(() => {
-      console.log('PROFILE FETCH ERROR: user does not have a profile');
-      if(!match.url.startsWith('/settings')){
-        return history.replace('/settings');
-      }
-    });
   }
 
   handleLogout() {
