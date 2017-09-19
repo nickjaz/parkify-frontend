@@ -63,7 +63,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.(woff|woff2|ttf|eot|glyph|\.svg)$/,
+        test: /\.(woff|woff2|ttf|eot|glyph)$/,
         use: [
           {
             loader: 'url-loader',
@@ -75,8 +75,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.(jpg|jpeg|gif|png|tiff|svg)$/,
-        exclude: /\.glyph.svg$/,
+        test: /\.(jpg|jpeg|gif|png|tiff)$/,
         use: [
           {
             loader: 'url-loader',
@@ -89,7 +88,6 @@ module.exports = {
       },
       {
         test: /\.(mp3|aac|aiff|wav|flac|m4a|mp4|ogg|ape)$/,
-        exclude: /\.glyph.svg$/,
         use: [
           {
             loader: 'file-loader',
