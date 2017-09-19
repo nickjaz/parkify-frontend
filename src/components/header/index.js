@@ -30,17 +30,13 @@ class Header extends React.Component {
   }
 
   render() {
-    let nav = this.state.navOpen
-      ? <Modal>
-        <Navbar />
-      </Modal>
-      : undefined;
+    let nav = this.state.navOpen ? <div className='navbar'><Navbar /></div> : undefined;
 
     return (
       <section className='header'>
         <button onClick={this.toggleNav}>V</button>
         <div className='logo'>Parkify</div>
-        <div className='nav'>{nav}</div>
+        {nav}
         <div className='logout' onClick={this.handleLogout}>Log Out</div>
       </section>
     );
