@@ -1,3 +1,4 @@
+import './_landing-container.scss';
 import React from 'react';
 import {connect} from 'react-redux';
 import AuthForm from '../auth-form';
@@ -5,6 +6,7 @@ import * as util from '../../lib/utilities.js';
 import {signupRequest, loginRequest} from '../../actions/auth-actions.js';
 import {fetchProfileRequest} from '../../actions/profile-actions.js';
 import PropTypes from 'prop-types';
+import Logo from '../../assets/logo.svg';
 
 class LandingContainer extends React.Component {
   constructor(props) {
@@ -45,7 +47,11 @@ class LandingContainer extends React.Component {
       : this.handSignup;
 
     return (
-      <div>
+      <div className='landing-container'>
+        <div id='title-container'>
+          <Logo id='logo' />
+          <h1 id='title'>Parkify</h1>
+        </div>
         <AuthForm
           auth={params.auth}
           onComplete={handleComplete}

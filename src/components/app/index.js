@@ -1,6 +1,7 @@
+import './_app.scss';
 import React from 'react';
 import {connect} from 'react-redux';
-import {BrowserRouter, Route} from 'react-router-dom';
+import {BrowserRouter, Route, Redirect} from 'react-router-dom';
 import Search from '../search';
 
 import LandingContainer from '../landing-container';
@@ -16,7 +17,8 @@ class App extends React.Component {
       <BrowserRouter>
         <div className='parkify'>
           <main>
-            <Route exact path='*' component={Navbar} />
+            <Redirect from='/' to='/welcome/login' /> 
+            <Route exact path='/search' component={Navbar} />
             <Route exact path='/welcome/:auth' component={LandingContainer} />
             <Route exact path='/search' component={Search} />
           </main>
