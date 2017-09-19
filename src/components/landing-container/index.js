@@ -2,7 +2,7 @@ import './_landing-container.scss';
 import React from 'react';
 import {connect} from 'react-redux';
 import AuthForm from '../auth-form';
-import * as util from '../../lib/utilities.js';
+import * as utilities from '../../lib/utilities.js';
 import {signupRequest, loginRequest} from '../../actions/auth-actions.js';
 import {fetchProfileRequest} from '../../actions/profile-actions.js';
 import PropTypes from 'prop-types';
@@ -28,15 +28,15 @@ class LandingContainer extends React.Component {
     return this.props.login(user)
     .then(() => fetchProfile())
     .then(() => history.push('/search'))
-    .catch(util.logError);
+    .catch(utilities.logError);
   }
 
   handleSignup(user) {
     return this.props.signup(user)
     .then(() => {
-      this.props.history.push('/settings');
+      this.props.history.push('/settings')
     })
-    .catch(util.logError);
+    .catch(utilities.logError);
   }
 
   render() {
