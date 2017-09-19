@@ -35,7 +35,7 @@ class CarForm extends React.Component {
   }
   handleSubmit(e) {
     e.preventDefault();
-    this.props.handleSubmit(this.state);
+    this.props.onComplete(this.state);
   }
 
 
