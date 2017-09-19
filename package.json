@@ -8,11 +8,8 @@
     "watch": "webpack-dev-server --inline --hot",
     "lint": "eslint .",
     "test": "echo \"Error: no test specified\" && exit 1",
-<<<<<<< HEAD
-    "start": "node server.js"
-=======
+    "start": "node server.js",
     "heroku-postbuild": "webpack -p"
->>>>>>> 8c565cb615c5c5e5ac5595db35d5025e3e42ac1d
   },
   "repository": {
     "type": "git",
