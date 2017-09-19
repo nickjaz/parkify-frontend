@@ -1,6 +1,9 @@
+import './_auth-form.scss';
 import React from 'react';
 import * as util from '../../lib/utilities.js';
 import PropTypes from 'prop-types';
+import GoogleOAuth from '../google-oauth';
+import {withRouter} from 'react-router-dom';
 
 class AuthForm extends React.Component {
   constructor(props) {
@@ -18,6 +21,7 @@ class AuthForm extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.redirectToSignup = this.redirectToSignup.bind(this);
   }
 
   handleChange(e) {
@@ -43,6 +47,11 @@ class AuthForm extends React.Component {
     });
   }
 
+  redirectToSignup(e) {
+    e.preventDefault();
+    this.props.history.push('/welcome/signup');
+  }
+
   render() {
     return (
       <form
@@ -53,7 +62,7 @@ class AuthForm extends React.Component {
           <input
             type='text'
             name='email'
-            placeholder='enter your email'
+            placeholder='Email'
             value={this.state.email}
             onChange={this.handleChange}
           />
@@ -62,7 +71,7 @@ class AuthForm extends React.Component {
         <input
           type='text'
           name='name'
-          placeholder='enter username'
+          placeholder='Username'
           value={this.state.name}
           onChange={this.handleChange}
         />
@@ -70,12 +79,17 @@ class AuthForm extends React.Component {
         <input
           type='password'
           name='password'
-          placeholder='enter password'
+          placeholder='Password'
           value={this.state.password}
           onChange={this.handleChange}
         />
 
         <button type='submit'>{this.props.auth}</button>
+
+        <button className='sign-up-button' onClick={this.redirectToSignup}>New user? Sign up here.</button>
+        <div className='separator'></div>
+
+        <GoogleOAuth />
       </form>
     );
   }
@@ -83,7 +97,8 @@ class AuthForm extends React.Component {
 
 AuthForm.propTypes = {
   auth: PropTypes.string,
-  onComplete: PropTypes.func
+  onComplete: PropTypes.func,
+  history: PropTypes.object
 };
 
-export default AuthForm;
+export default withRouter(AuthForm);

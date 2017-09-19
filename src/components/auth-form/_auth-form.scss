@@ -1,0 +1,54 @@
+.auth-form {
+    margin: 0 auto;
+    max-width: 400px;
+    padding: 0 30px;
+
+  & input {
+    display: block;
+    margin-top: 5px;
+    padding: 15px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 1.25em;
+    border-radius: 5px;
+    border: none;
+    background: rgba(255, 255, 255, 0.9);
+  }
+
+  & button {
+    display: block;
+    margin-top: 5px;
+    padding: 15px;
+    margin: 5px 0;
+    font-size: 1.25em;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    background-color: hsl(140, 52%, 55%);
+    text-transform: capitalize;
+    color: white;
+    text-shadow: 1px 1px #777;
+    cursor: pointer;
+    outline: none;
+  }
+
+  & .separator {
+    height: 2px;
+    margin: 30px;
+    background: linear-gradient(to right, transparent 0, rgba(255,255,255,0.2) 10%, rgba(255,255,255,0.2) 90%, transparent 100%);
+  }
+
+  & .sign-up-button {
+    background-color: transparent;
+    text-shadow: none;
+    font-size: 1em;
+    padding: 15px 0 0 0;
+    margin-bottom: 0;
+    text-transform: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
