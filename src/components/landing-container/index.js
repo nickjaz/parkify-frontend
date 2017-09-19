@@ -4,6 +4,7 @@ import AuthForm from '../auth-form';
 import * as utilities from '../../lib/utilities.js';
 import {signupRequest, loginRequest} from '../../actions/auth-actions.js';
 import {fetchProfileRequest} from '../../actions/profile-actions';
+import PropTypes from 'prop-types';
 
 class LandingContainer extends React.Component {
   constructor(props) {
@@ -33,7 +34,7 @@ class LandingContainer extends React.Component {
     .then(() => {
       this.props.history.push('/settings')
     })
-    .catch(utilities.logError)
+    .catch(utilities.logError);
   }
 
   render() {
@@ -53,6 +54,16 @@ class LandingContainer extends React.Component {
     );
   }
 }
+
+LandingContainer.propTypes = {
+  auth: PropTypes.string,
+  profile: PropTypes.object,
+  history: PropTypes.object,
+  fetchProfile: PropTypes.func,
+  login: PropTypes.func,
+  signup: PropTypes.func,
+  match: PropTypes.object
+};
 
 let mapStateToProps = (state) => ({
   auth: state.auth,
