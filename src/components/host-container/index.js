@@ -4,17 +4,17 @@ import * as util from '../../lib/utilities.js';
 
 import {fetchLotsRequest, createLotRequest} from '../../actions/host-lot-actions.js';
 import HostLotForm from '../host-lot-form';
-import HostLotItem from '../host-lot-item';
+// import HostLotItem from '../host-lot-item';
 
 class HostContainer extends React.Component {
   constructor(props) {
     super(props);
   }
 
-  componentDidMount() {
-    this.props.fetchHostLots()
-    .catch(util.logError);
-  }
+  // componentDidMount() {
+  //   this.props.fetchHostLots()
+  //   .catch(util.logError);
+  // }
 
   render() {
     return (
@@ -27,10 +27,6 @@ class HostContainer extends React.Component {
             .catch(console.error);
           }}
         />
-
-        {this.props.lots.map(lot =>
-          <HostLotItem key={lot._id} lot={lot} />
-        )}
       </div>
     );
   }

@@ -7,6 +7,8 @@ import LandingContainer from '../landing-container';
 import {setToken} from '../../actions/auth-actions.js';
 import {fetchProfileRequest} from '../../actions/profile-actions.js';
 
+import SettingsContainer from '../settings-container';
+
 import Navbar from '../navbar';
 
 
@@ -19,6 +21,7 @@ class App extends React.Component {
             <Route exact path='*' component={Navbar} />
             <Route exact path='/welcome/:auth' component={LandingContainer} />
             <Route exact path='/search' component={Search} />
+            <Route exact path='/settings' component={SettingsContainer} />
           </main>
         </div>
       </BrowserRouter>

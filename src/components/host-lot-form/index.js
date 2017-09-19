@@ -4,16 +4,14 @@ class HostLotForm extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = props.lot ?
-      {...props.profile} :
-      {
-        name: props.lot.name || '',
-        description: props.lot.description || '',
-        address: props.lot.address || '',
-        price: props.lot.price || 0,
-        startTime: props.lot.startTime || '',
-        endTime: props.lot.endTime || ''
-      };
+    this.state = {
+      name: props.lot ? props.lot.name : '',
+      description: props.lot ? props.lot.description: '',
+      address: props.lot ? props.lot.address: '',
+      price: props.lot ? props.lot.price: 0,
+      startTime: props.lot ? props.lot.startTime: '',
+      endTime: props.lot ? props.lot.endTime: ''
+    };
 
     this.handleHostLotFormChange = this.handleHostLotFormChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);

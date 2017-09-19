@@ -23,7 +23,7 @@ export const deleteLot = (lot) => ({
 export const fetchLotsRequest = () => (dispatch, getState) => {
   let {auth} = getState();
 
-  return superagent.get(`${__API_URL__}/api/lots`)
+  return superagent.get(`${__API_URL__}/lots`)
   .set('Authorization', `Bearer ${auth}`)
   .then(response => {
     dispatch(fetchLots(response.body));
@@ -34,11 +34,12 @@ export const fetchLotsRequest = () => (dispatch, getState) => {
 export const createLotRequest = (lot) => (dispatch, getState) => {
   let {auth} = getState();
 
-  return superagent.post(`${__API_URL__}/api/lot`)
+  return superagent.post(`${__API_URL__}/lot`)
   .set('Authorization', `Bearer ${auth}`)
   .send(lot)
   .then(response => {
-    dispatch(createLot(response.body));
+    dispatch(createLot(lot));
+    console.log('THE STATE AFTER THE GET:', getState());
     return response;
   });
 };
@@ -46,7 +47,7 @@ export const createLotRequest = (lot) => (dispatch, getState) => {
 export const updateLotRequest = (lot) => (dispatch, getState) => {
   let {auth} = getState();
 
-  return superagent.put(`${__API_URL__}/api/lot/${lot._id}`)
+  return superagent.put(`${__API_URL__}/lot/${lot._id}`)
   .set('Authorization', `Bearer ${auth}`)
   .send(lot)
   .then(response => {
