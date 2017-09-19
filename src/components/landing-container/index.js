@@ -34,7 +34,7 @@ class LandingContainer extends React.Component {
   handleSignup(user) {
     return this.props.signup(user)
     .then(() => {
-      this.props.history.push('/settings')
+      this.props.history.push('/settings');
     })
     .catch(utilities.logError);
   }
