@@ -17,7 +17,7 @@ export const signupRequest = (user) => (dispatch) => {
   .withCredentials()
   .send(user)
   .then( response => {
-    dispatch(setToken(response.body.tokenHash));
+    dispatch(setToken(response.text));
     dispatch(createProfileRequest({ user: user.name, email: user.email }));
     try {
       localStorage.token = response.text;
@@ -33,7 +33,7 @@ export const loginRequest = (user) => (dispatch) => {
   .withCredentials()
   .auth(user.name, user.password)
   .then(response => {
-    dispatch(setToken(response.body.tokenHash));
+    dispatch(setToken(response.text));
     dispatch(fetchProfileRequest());
     return response;
   });
