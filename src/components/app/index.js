@@ -19,11 +19,12 @@ class App extends React.Component {
         <div className='parkify'>
           <main>
             <Route exact path='/' render={() => (
-              this.props.profile ? (
-                <Redirect to='/search' />
-              ) : (
-                <Redirect to='/settings' />
-              )
+              !this.token ? <Redirect to='/welcome/login' />
+                : this.props.profile ? (
+                  <Redirect to='/search' />
+                ) : (
+                  <Redirect to='/settings' />
+                )
             )} /> 
             <Route exact path='/search' component={Navbar} />
             <Route exact path='/welcome/:auth' component={LandingContainer} />
@@ -37,6 +38,7 @@ class App extends React.Component {
 }
 
 let mapStateToProps = (state) => ({
+  token: state.auth,
   profile: state.profile,
 });
 
