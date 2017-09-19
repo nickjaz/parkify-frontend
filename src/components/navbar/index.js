@@ -36,7 +36,6 @@ class Navbar extends React.Component {
     if(!token){
       return history.replace('/welcome/signup');
     }
-
     this.props.setToken(token);
     this.props.fetchProfile()
     .catch(() => {
