@@ -1,18 +1,14 @@
 import React from 'react';
+import HostContainer from '../host-container';
 
 class SettingsContainer extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
-      <div className='settings-container'>
-
+      <div>
+        <HostContainer />
       </div>
     );
   }
 }
-
 
 export default SettingsContainer;
