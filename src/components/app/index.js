@@ -10,8 +10,6 @@ import {setToken} from '../../actions/auth-actions.js';
 import {fetchProfileRequest} from '../../actions/profile-actions.js';
 import * as util from '../../lib/utilities.js';
 
-import SettingsContainer from '../settings-container';
-
 import Navbar from '../navbar';
 
 class App extends React.Component {
