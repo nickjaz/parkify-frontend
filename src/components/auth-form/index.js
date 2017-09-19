@@ -1,6 +1,6 @@
 import './_auth-form.scss';
 import React from 'react';
-import * as util from '../../lib/utilities.js';
+import * as utilities from '../../lib/utilities.js';
 import PropTypes from 'prop-types';
 import GoogleOAuth from '../google-oauth';
 import {withRouter} from 'react-router-dom';
@@ -58,7 +58,7 @@ class AuthForm extends React.Component {
         onSubmit={this.handleSubmit}
         className='auth-form'>
 
-        {util.renderIf(this.props.auth === 'signup',
+        {utilities.renderIf(this.props.auth === 'signup',
           <input
             type='text'
             name='email'

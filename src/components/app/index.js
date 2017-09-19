@@ -24,23 +24,14 @@ class App extends React.Component {
   }
 
   validateRoute(props){
-    let {match, history} = props;
+    let {history} = props;
     let token = util.readCookie('X-Parkify-Token');
 
     if (!token){
       return;
     }
 
-    this.props.setToken(token);
-    this.props.fetchProfile()
-    .then(() => history.replace('/search'))
-    .catch(() => {
-      console.log('PROFILE FETCH ERROR: user does not have a userProfile');
-
-      if(!match.url.startsWith('/settings')) {
-        history.replace('/settings');
-      }
-    });
+    history.replace('/search');
   }
 
   render() {
@@ -49,7 +40,7 @@ class App extends React.Component {
         <div className='parkify'>
           <main>
             <Route exact path='*' component={Navbar} />
-            <Redirect from='/' to='/welcome/login' /> 
+            <Redirect from='/' to='/welcome/login' />
             <Route exact path='/welcome/:auth' component={LandingContainer} />
             <Route exact path='/search' component={Search} />
             <Route exact path='/settings' component={SettingsContainer} />

@@ -8,17 +8,20 @@ export default (state=null, action) => {
   let {type, payload} = action;
 
   switch (type) {
-  case 'CREATE_PROFILE' :
-    validateProfileCreate(payload);
-    return payload;
-  case 'UPDATE_PROFILE' :
-    validateProfileCreate(payload);
-    if(!state) throw new Error('USAGE ERROR: user must create profile first');
-    validateProfileCreate(payload);
-    return {...state, ...payload};
-  case 'LOGOUT' :
-    return null;
-  default :
-    return state;
+    case 'CREATE_PROFILE' :
+      validateProfileCreate(payload);
+      return payload;
+
+    case 'UPDATE_PROFILE' :
+      validateProfileCreate(payload);
+      if(!state) throw new Error('USAGE ERROR: user must create profile first');
+      validateProfileCreate(payload);
+      return {...state, ...payload};
+
+    case 'LOGOUT' :
+      return null;
+      
+    default :
+      return state;
   }
 };

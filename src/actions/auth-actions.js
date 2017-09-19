@@ -1,5 +1,6 @@
 import superagent from 'superagent';
 import * as util from '../lib/utilities.js';
+import {createProfileRequest, fetchProfileRequest} from './profile-actions.js';
 
 export const setToken = (token) => ({
   type: 'SET_TOKEN',
@@ -16,7 +17,8 @@ export const signupRequest = (user) => (dispatch) => {
   .withCredentials()
   .send(user)
   .then( response => {
-    dispatch(setToken(response.text));
+    dispatch(setToken(response.body.tokenHash));
+    dispatch(createProfileRequest({ user: user.name, email: user.email }));
     try {
       localStorage.token = response.text;
     } catch (error) {
@@ -27,11 +29,12 @@ export const signupRequest = (user) => (dispatch) => {
 };
 
 export const loginRequest = (user) => (dispatch) => {
-  return superagent.get(`${__API_URL__}/login`)
+  return superagent.get(`${__API_URL__}/signin`)
   .withCredentials()
-  .auth(user.username, user.password)
+  .auth(user.name, user.password)
   .then(response => {
-    dispatch(setToken(response.text));
+    dispatch(setToken(response.body.tokenHash));
+    dispatch(fetchProfileRequest());
     return response;
   });
 };
