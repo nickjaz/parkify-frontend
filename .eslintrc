@@ -16,8 +16,7 @@
       "single", { "allowTemplateLiterals": true }
     ],
     "semi": ["error", "always"],
-    "linebreak-style": [ "error", "unix" ],
-    "react/prop-types": [0]
+    "linebreak-style": [ "error", "unix" ]
   },
   "env": {
     "node": true,
