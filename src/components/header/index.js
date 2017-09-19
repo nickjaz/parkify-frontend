@@ -32,12 +32,12 @@ class Header extends React.Component {
     let nav = this.state.navOpen ? <div className='navbar'><Navbar /></div> : undefined;
 
     return (
-      <section className='header'>
+      <header className='header'>
         <button onClick={this.toggleNav}>V</button>
         <div className='logo'>Parkify</div>
         {nav}
         <div className='logout' onClick={this.handleLogout}>Log Out</div>
-      </section>
+      </header>
     );
   }
 }

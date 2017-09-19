@@ -9,29 +9,11 @@ import LandingContainer from '../landing-container';
 import {setToken} from '../../actions/auth-actions.js';
 import {fetchProfileRequest} from '../../actions/profile-actions.js';
 import * as util from '../../lib/utilities.js';
-
-import Navbar from '../navbar';
+import Header from '../header';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-
-    this.validateRoute = this.validateRoute.bind(this);
-  }
-
-  componentDidMount(){
-    this.validateRoute(this.props);
-  }
-
-  validateRoute(props){
-    let {history} = props;
-    let token = util.readCookie('X-Parkify-Token');
-
-    if (!token){
-      return;
-    }
-
-    history.replace('/search');
   }
 
   render() {
@@ -39,7 +21,7 @@ class App extends React.Component {
       <BrowserRouter>
         <div className='parkify'>
           <main>
-            <Route exact path='*' component={Navbar} />
+            <Route exact path='*' component={Header} />
             <Redirect from='/' to='/welcome/login' />
             <Route exact path='/welcome/:auth' component={LandingContainer} />
             <Route exact path='/search' component={Search} />
