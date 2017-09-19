@@ -5,10 +5,10 @@ import CarForm from '../car-form';
 class SettingsContainer extends React.Component {
   render() {
     return (
-      <section>
-        <div>{ProfileForm}</div>
-        <div>{CarForm}</div>
-      </section>
+      <div className='settings-container'>
+        <ProfileForm />
+        <CarForm />
+      </div>
     );
   }
 }

@@ -7,9 +7,9 @@ class Modal extends React.Component {
     return (
       <section className='modal'>
         <button onClick={this.props.close}>X</button>
-        <main>
+        <div className='modal-content'>
           {this.props.children}
-        </main>
+        </div>
       </section>
     );
   }
