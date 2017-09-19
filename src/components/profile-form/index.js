@@ -29,15 +29,19 @@ class ProfileForm extends React.Component {
         className='profile-form'
         onSubmit={this.handleSubmit} >
 
+        <label htmlFor='name'>name:</label>
         <input
           type='text'
           name='name'
+          placeholder='username'
           onChange={this.handleChange}
         />
 
+        <label htmlFor='email'>email:</label>
         <input
           type='text'
           name='email'
+          placeholder='email'
           onChange={this.handleChange}
         />
 
@@ -47,6 +51,8 @@ class ProfileForm extends React.Component {
           name='host'
           onChange={this.handleChange}
         />
+
+        <button>Update</button>
       </form>
     );
   }
