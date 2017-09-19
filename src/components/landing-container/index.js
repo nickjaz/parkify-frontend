@@ -44,7 +44,7 @@ class LandingContainer extends React.Component {
 
     let handleComplete = params.auth === 'login'
       ? this.handleLogin
-      : this.handSignup;
+      : this.handleSignup;
 
     return (
       <div className='landing-container'>
