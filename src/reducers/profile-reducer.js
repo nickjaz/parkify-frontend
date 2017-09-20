@@ -20,7 +20,19 @@ export default (state=null, action) => {
 
     case 'LOGOUT' :
       return null;
-      
+
+    case 'FETCH_CARS':
+      return payload;
+
+    case 'CREATE_CAR':
+      return {...state, cars: [...state.cars, payload]};
+
+    case 'UPDATE_CAR':
+      return {...state, cars: state.cars.map(car => car._id === payload.id ? payload : car)};
+
+    case 'DELETE_CAR':
+      return {...state, cars: state.cars.filter(car => car._id !== payload.id)};
+
     default :
       return state;
   }
