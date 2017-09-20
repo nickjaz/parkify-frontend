@@ -37,8 +37,6 @@ class CarForm extends React.Component {
     this.props.onComplete(this.state);
   }
 
-
-
   render() {
     return (
       <div>
