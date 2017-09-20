@@ -1,20 +1,21 @@
 header {
   margin: 0;
-  font-size: 5vw;
-  height: 9vw;
+  font-size: 10vw;
+  height: 18vw;
   background: #004a14;
   box-sizing: border-box;
   display: flex;
   align-items: center;
+  margin-bottom: 2vw;
 
   & button {
     background: #001910;
+    position: absolute;
     border: none;
     color: #fff;
-    height: 100%;
-    width: 10vw;
-    float: left;
-    font-size: 3vw;
+    height: 18vw;
+    width: 18vw;
+    font-size: 15vw;
     cursor: pointer;
 
   & .logout {
@@ -30,8 +31,8 @@ header {
   }
 }
 
-
 #header-title-container {
+  margin: 0 auto;
   flex: 1;
   text-align: center;
 }
@@ -39,7 +40,7 @@ header {
 #header-title {
   font-family: 'Roboto Condensed', sans-serif;
   color: white;
-  font-size: 1em;
+  font-size: 1.5em;
   text-shadow: 1px 1px 10px #777;
   text-align: center;
   margin-left: 15px;
@@ -49,7 +50,7 @@ header {
 }
 
 #header-logo {
-  height: 6vw;
-  width: 6vw;
+  height: 12vw;
+  width: 12vw;
   display: inline-block;
 }
