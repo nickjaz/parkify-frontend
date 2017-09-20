@@ -30,7 +30,7 @@ class Header extends React.Component {
           <Logo id='header-logo' />
           <h3 id='header-title'>Parkify</h3>
         </div>
-        <nav>
+        <nav onClick={this.toggleNav}>
           {this.state.navOpen ? <Modal showClose={false}><Navbar /></Modal> : undefined}
         </nav>
       </header>
