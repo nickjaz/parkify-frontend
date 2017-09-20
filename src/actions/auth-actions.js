@@ -18,7 +18,7 @@ export const signupRequest = (user) => (dispatch) => {
   .send(user)
   .then( response => {
     dispatch(setToken(response.text));
-    dispatch(createProfileRequest({ user: user.name, email: user.email }));
+    dispatch(createProfileRequest({ name: user.name, email: user.email }));
     try {
       localStorage.token = response.text;
     } catch (error) {

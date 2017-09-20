@@ -1,32 +1,30 @@
 .modal {
-  background: #444;
-  height: 400px;
-  width: 90%;
-  z-index: 999;
-  border-radius: 3px;
-  box-shadow: 8px 8px 15px #111;
+  background: rgba(0,0,0,0.85);
+  z-index: 1;
+  position: absolute;
+  top: 9vw;
+  bottom: 0;
+  left: 0;
+  right: 0;
   padding: 2%;
+  display: flex;
 
-  button {
-    position: absolute;
-    top: 0;
-    right: 5%;
-    border: 2px solid #fff;
-    border-radius: 100%;
-    background: #000;
+  & button {
+    border: none;
     color: #fff;
-    font-size: 16px;
+    height: 48px;
+    width: 48px;
+    margin-right: 20px;
+    font-size: 3vw;
     cursor: pointer;
-    box-shadow: 4px 4px 10px #111;
 
     &:hover {
     background: #777;
     }
   }
 
-  div {
-    margin: 5% 10%;
-    height: 90%;
+  & div {
+    flex: 1;
     font-family: Helvetica;
     color: #fff;
     overflow: auto;

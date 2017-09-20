@@ -1,10 +1,11 @@
 import './_header.scss';
 import React from 'react';
-import Modal from '../modal';
 import Navbar from '../navbar';
 import {connect} from 'react-redux';
-
+import Modal from '../modal';
 import {logout} from '../../actions/auth-actions.js';
+import PropTypes from 'prop-types';
+import Logo from '../../assets/logo.svg';
 
 class Header extends React.Component {
   constructor(props) {
@@ -26,26 +27,27 @@ class Header extends React.Component {
   handleLogout() {
     this.props.logout();
     this.props.history.push('/welcome/login');
-    console.log('log out click');
   }
 
   render() {
-    let nav = this.state.navOpen
-      ? <Modal>
-        <Navbar />
-      </Modal>
-      : undefined;
-
     return (
-      <section className='header'>
+      <header className='header'>
         <button onClick={this.toggleNav}>V</button>
-        <div className='logo'>Parkify</div>
-        <div className='nav'>{nav}</div>
+        <div id='header-title-container'>
+          <Logo id='header-logo' />
+          <h3 id='header-title'>Parkify</h3>
+        </div>
+        {this.state.navOpen ? <Modal showClose={false}><Navbar /></Modal> : undefined}
         <div className='logout' onClick={this.handleLogout}>Log Out</div>
-      </section>
+      </header>
     );
   }
 }
+
+Header.propTypes = {
+  history: PropTypes.object,
+  logout: PropTypes.func
+};
 
 let mapDispatchToProps = (dispatch) => ({
   logout: () => dispatch(logout()),
