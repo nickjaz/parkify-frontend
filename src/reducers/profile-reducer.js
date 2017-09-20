@@ -22,7 +22,7 @@ export default (state=null, action) => {
       return null;
 
     case 'FETCH_CARS':
-      return payload;
+      return {...state, cars: payload };
 
     case 'CREATE_CAR':
       return {...state, cars: [...state.cars, payload]};
