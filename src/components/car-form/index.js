@@ -36,8 +36,7 @@ class CarForm extends React.Component {
     e.preventDefault();
     this.props.onComplete(this.state);
   }
-
-
+  
   render() {
     return (
       <div>
