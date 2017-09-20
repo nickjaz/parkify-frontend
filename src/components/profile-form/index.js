@@ -26,7 +26,7 @@ class ProfileForm extends React.Component {
   }
 
   render() {
-    let {name, email, host} = this.state.profile;
+    let {name, email, host} = this.props.profile;
 
     return (
       <form
