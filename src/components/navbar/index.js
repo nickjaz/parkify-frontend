@@ -26,6 +26,7 @@ class Navbar extends React.Component {
         <Link to='/search'><li><span>Search</span></li></Link>
         <Link to='/lots'><li><span>Host</span></li></Link>
         <Link to='/settings'><li><span>Settings</span></li></Link>
+        <Link to='/addalot'><li><span>Settings</span></li></Link>
         <li className='logout' onClick={this.handleLogout}><span>Logout</span></li>
       </ul>
     );
