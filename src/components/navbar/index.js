@@ -9,14 +9,6 @@ import {fetchProfileRequest} from '../../actions/profile-actions.js';
 
 import PropTypes from 'prop-types';
 
-let NavLink = (props) => (
-  <li className={util.classToggler({selected: props.url === `/${props.route}` })} >
-    <Link to={`/${props.route}`}>
-      {props.route}
-    </Link>
-  </li>
-);
-
 class Navbar extends React.Component {
   constructor(props){
     super(props);
@@ -30,14 +22,12 @@ class Navbar extends React.Component {
 
   render() {
     return (
-      <nav>
-        <ul>
-          <li><Link to='/search'>Home</Link></li>
-          <li><Link to='/lots'>Lots</Link></li>
-          <li><Link to='/settings'>Settings</Link></li>
-          <li className='logout' onClick={this.handleLogout}>Logout</li>
-        </ul>
-      </nav>
+      <ul>
+        <Link to='/search'><li><span>Search</span></li></Link>
+        <Link to='/lots'><li><span>Host</span></li></Link>
+        <Link to='/settings'><li><span>Settings</span></li></Link>
+        <li className='logout' onClick={this.handleLogout}><span>Logout</span></li>
+      </ul>
     );
   }
 }
@@ -49,11 +39,6 @@ Navbar.propTypes = {
   history: PropTypes.object,
   fetchProfile: PropTypes.func,
   setToken: PropTypes.func,
-};
-
-NavLink.propTypes = {
-  url: PropTypes.string,
-  route: PropTypes.string
 };
 
 let mapStateToProps = (state) => ({
