@@ -2,35 +2,34 @@ header {
   margin: 0;
   font-size: 5vw;
   height: 9vw;
-  padding: 2vw;
   background: 	#006d16;
   box-sizing: border-box;
   display: flex;
   align-items: center;
 
   & button {
-    background: #444;
+    background: #004a14;
     border: none;
-    border-radius: 5%;
     color: #fff;
     height: 100%;
-    margin-right: 20px;
+    width: 10vw;
     float: left;
     font-size: 3vw;
     cursor: pointer;
+
+  & .logout {
+      float: right;
+      margin-right: 2vw;
+      cursor: pointer;
+      font-size: 1.25rem;
+
+      &:hover {
+        color: #aaa;
+      }
+    }
   }
 }
 
-.logout {
-  float: right;
-  margin-right: 2vw;
-  cursor: pointer;
-  font-size: 1.25rem;
-
-  &:hover {
-    color: #aaa;
-  }
-}
 
 #header-title-container {
   flex: 1;
@@ -50,7 +49,7 @@ header {
 }
 
 #header-logo {
-  height: 30px;
-  width: 30px;
+  height: 6vw;
+  width: 6vw;
   display: inline-block;
 }
