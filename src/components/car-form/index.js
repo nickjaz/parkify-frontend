@@ -36,7 +36,7 @@ class CarForm extends React.Component {
     e.preventDefault();
     this.props.onComplete(this.state);
   }
-  
+
   render() {
     return (
       <div>
@@ -72,7 +72,7 @@ class CarForm extends React.Component {
             value={this.state.licensePlate}
             onChange={this.handleChange}
           />
-          <button type='submit'>Add</button>
+          <button type='submit'>{this.props.buttonText}</button>
         </form>
       </div>
     )

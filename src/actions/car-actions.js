@@ -61,7 +61,7 @@ export const deleteCarRequest = (car) => (dispatch, getState) => {
   return superagent.delete(`${__API_URL__}/car/${car._id}`)
   .set('Authorization', `Bearer ${auth}`)
   .then(response => {
-    dispatch(deleteCarRequest(car));
+    dispatch(deleteCar(car));
     return response;
   });
 };
