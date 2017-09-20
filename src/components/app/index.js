@@ -22,8 +22,8 @@ class App extends React.Component {
         <div className='parkify'>
           <main>
             <Route exact path='*' component={Header} />
-            <Redirect from='/' to='/welcome/login' />
-            <Route exact path='/welcome/:auth' component={LandingContainer} />
+            <Route exact path='/' render={() => <Redirect from='/' to='/welcome/login' />} />
+            <Route path='/welcome/:auth' component={LandingContainer} />
             <Route exact path='/search' component={Search} />
             <Route exact path='/settings' component={SettingsContainer} />
           </main>
