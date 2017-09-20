@@ -1,20 +1,21 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import * as util from '../../lib/utilities.js';
+import PropTypes from 'prop-types';
 
 import {fetchLotsRequest, createLotRequest} from '../../actions/host-lot-actions.js';
 import HostLotForm from '../host-lot-form';
-// import HostLotItem from '../host-lot-item';
+import HostLotItem from '../host-lot-item';
 
 class HostContainer extends React.Component {
   constructor(props) {
     super(props);
   }
 
-  // componentDidMount() {
-  //   this.props.fetchHostLots()
-  //   .catch(util.logError);
-  // }
+  componentDidMount() {
+    this.props.fetchHostLots()
+    .catch(util.logError);
+  }
 
   render() {
     return (
@@ -44,5 +45,10 @@ const mapDispatchToProps = (dispatch, getState) => {
     createLot: (lot) => dispatch(createLotRequest(lot))
   };
 };
+
+HostContainer.propTypes = {
+  profile: PropTypes.func,
+};
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(HostContainer);

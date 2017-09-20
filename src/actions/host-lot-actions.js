@@ -22,10 +22,12 @@ export const deleteLot = (lot) => ({
 
 export const fetchLotsRequest = () => (dispatch, getState) => {
   let {auth} = getState();
+  console.log('AUTH:', auth);
 
   return superagent.get(`${__API_URL__}/lots`)
   .set('Authorization', `Bearer ${auth}`)
   .then(response => {
+    console.log('FETCH LOTS:', getState());
     dispatch(fetchLots(response.body));
     return response;
   });
@@ -33,10 +35,6 @@ export const fetchLotsRequest = () => (dispatch, getState) => {
 
 export const createLotRequest = (lot) => (dispatch, getState) => {
   let {auth} = getState();
-  auth = JSON.parse(auth);
-  auth = auth.tokenHash;
-  console.log('auth:', auth);
-  console.log('lot:', lot);
 
   return superagent.post(`${__API_URL__}/lot`)
   .set('Authorization', `Bearer ${auth}`)
