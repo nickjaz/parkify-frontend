@@ -20,7 +20,7 @@ export const deleteCar = (car) => ({
   payload: car
 });
 
-export const fetchCarRequest = () => (dispatch, getState) => {
+export const fetchCarsRequest = () => (dispatch, getState) => {
   let {auth} = getState();
 
   return superagent.get(`${__API_URL__}/cars`)
