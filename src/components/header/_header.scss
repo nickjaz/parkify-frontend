@@ -1,10 +1,12 @@
-.header {
+header {
   margin: 0;
   font-size: 5vw;
-  width: 100%;
-  height: 5vw;
+  height: 9vw;
   padding: 2vw;
-  background: #222;
+  background: 	#006d16;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
 
   & button {
     background: #444;
@@ -19,27 +21,36 @@
   }
 }
 
-.logo {
-  float: left;
-  color: #fff;
-}
-
-.nav {
-  position: absolute;
-  margin-top: 8vw;
-  width: 100%;
-
-  button {
-    display: none;
-  }
-}
-
 .logout {
   float: right;
   margin-right: 2vw;
   cursor: pointer;
+  font-size: 1.25rem;
 
   &:hover {
     color: #aaa;
   }
+}
+
+#header-title-container {
+  flex: 1;
+  text-align: center;
+}
+
+#header-title {
+  font-family: 'Roboto Condensed', sans-serif;
+  color: white;
+  font-size: 1em;
+  text-shadow: 1px 1px 10px #777;
+  text-align: center;
+  margin-left: 15px;
+  display: inline-block;
+  user-select: none;
+  cursor: default;
+}
+
+#header-logo {
+  height: 30px;
+  width: 30px;
+  display: inline-block;
 }
