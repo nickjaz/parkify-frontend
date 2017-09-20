@@ -27,7 +27,6 @@ export const fetchLotsRequest = () => (dispatch, getState) => {
   .set('Authorization', `Bearer ${auth}`)
   .then(response => {
     dispatch(fetchLots(response.body));
-    console.log('DA STATE:', getState());
     return response;
   });
 };
@@ -40,7 +39,6 @@ export const createLotRequest = (lot) => (dispatch, getState) => {
   .send(lot)
   .then(response => {
     dispatch(fetchLotsRequest());
-    console.log('THE STATE AFTER THE GET:', getState());
     return response;
   });
 };
