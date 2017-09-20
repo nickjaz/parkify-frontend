@@ -35,7 +35,7 @@ class ProfileForm extends React.Component {
 
         <h3>Update your profile</h3>
 
-        <label htmlFor='name'>name:</label>
+        <label htmlFor='name'>username:</label>
         <input
           type='text'
           name='name'
