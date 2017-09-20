@@ -50,7 +50,7 @@ SettingsContainer.propTypes = {
 };
 
 let mapStateToProps = (state) => ({
-  cars: state.cars
+  cars: state.profile.cars
 });
 
 let mapDispatchToProps = (dispatch) => ({
