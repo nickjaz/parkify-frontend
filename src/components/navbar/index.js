@@ -34,7 +34,7 @@ class Navbar extends React.Component {
     return (
       <nav>
         <ul>
-          <NavLink route='nav link' />
+          <NavLink route='/settings' />
           <NavLink route='nav link' />
           <NavLink route='nav link' />
           <NavLink route='nav link' />

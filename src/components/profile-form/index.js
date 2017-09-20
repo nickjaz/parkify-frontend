@@ -1,7 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {updateProfileRequest} from '../../actions/profile-actions.js';
 import PropTypes from 'prop-types';
+
+import {updateProfileRequest} from '../../actions/profile-actions.js';
+import * as util from '../../lib/utilities.js';
 
 class ProfileForm extends React.Component {
   constructor(props) {
@@ -24,16 +26,20 @@ class ProfileForm extends React.Component {
   }
 
   render() {
+    let {name, email, host} = this.state.profile;
+
     return (
       <form
         className='profile-form'
         onSubmit={this.handleSubmit} >
 
+        <h3>Update your profile</h3>
+
         <label htmlFor='name'>name:</label>
         <input
           type='text'
           name='name'
-          placeholder='username'
+          placeholder={name}
           onChange={this.handleChange}
         />
 
@@ -41,16 +47,32 @@ class ProfileForm extends React.Component {
         <input
           type='text'
           name='email'
-          placeholder='email'
+          placeholder={email}
           onChange={this.handleChange}
         />
 
-        <label htmlFor='host'>Would you like to rent your space?</label>
-        <input
-          type='checkbox'
-          name='host'
-          onChange={this.handleChange}
-        />
+        {util.renderIf(host === false,
+          <div>
+            <label htmlFor='host'>Would you like to rent your space?</label>
+            <input
+              type='checkbox'
+              name='host'
+              onChange={this.handleChange}
+            />
+          </div>
+        )}
+
+        {util.renderIf(host,
+          <div>
+            <label htmlFor='host'>Would you like to stop renting your space?</label>
+            <input
+              type='checkbox'
+              name='host'
+              onChange={this.handleChange}
+              checked
+            />
+          </div>
+        )}
 
         <button>Update</button>
       </form>
