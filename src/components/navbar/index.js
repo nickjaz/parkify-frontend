@@ -34,10 +34,10 @@ class Navbar extends React.Component {
     return (
       <nav>
         <ul>
-          <NavLink route='nav link' />
-          <NavLink route='nav link' />
-          <NavLink route='nav link' />
-          <NavLink route='nav link' />
+          <li>Home</li>
+          <li>Lots</li>
+          <li>Setting</li>
+          <li className='logout'>Logout</li>
         </ul>
 
         {util.renderIf(this.props.loggedIn,
