@@ -33,10 +33,16 @@ export const fetchLotsRequest = () => (dispatch, getState) => {
 
 export const createLotRequest = (lot) => (dispatch, getState) => {
   let {auth} = getState();
+  console.log('LOT:', lot);
 
   return superagent.post(`${__API_URL__}/lot`)
   .set('Authorization', `Bearer ${auth}`)
   .send(lot)
+  .then(newLot => {
+    return superagent.post(`${__API_URL__}/lot/${newLot.body._id}/price`)
+    .set('Authorization', `Bearer ${auth}`)
+    .send(lot);
+  })
   .then(response => {
     dispatch(fetchLotsRequest());
     return response;
