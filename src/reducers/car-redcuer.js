@@ -2,7 +2,7 @@ export default (state=[], action) => {
   let {type, payload} = action;
 
   switch(type) {
-    case 'FETCH_CARS':
+    case 'FETCH_CAR':
       return payload;
 
     case 'CREATE_CAR':
