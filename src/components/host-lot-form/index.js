@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class HostLotForm extends React.Component {
   constructor(props) {
@@ -8,9 +9,9 @@ class HostLotForm extends React.Component {
       name: props.lot ? props.lot.name : '',
       description: props.lot ? props.lot.description: '',
       address: props.lot ? props.lot.address: '',
-      price: props.lot ? props.lot.price: 0,
-      startTime: props.lot ? props.lot.startTime: '',
-      endTime: props.lot ? props.lot.endTime: ''
+      price: props.lot ? props.lot.prices[0].price: 0,
+      startTime: props.lot ? props.lot.prices[0].startTime: '',
+      endTime: props.lot ? props.lot.prices[0].endTime: ''
     };
 
     this.handleHostLotFormChange = this.handleHostLotFormChange.bind(this);
@@ -88,5 +89,15 @@ class HostLotForm extends React.Component {
     );
   }
 }
+
+HostLotForm.propTypes = {
+  name: PropTypes.string,
+  description:PropTypes.string,
+  address: PropTypes.string,
+  price: PropTypes.string,
+  startTime: PropTypes.string,
+  endTime: PropTypes.string,
+};
+
 
 export default HostLotForm;

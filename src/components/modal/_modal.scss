@@ -1,12 +1,13 @@
 .modal {
-  background: rgba(0,0,0,0.85);
+  background: rgba(0,0,0, 0.9);
   z-index: 1;
   position: absolute;
-  top: 9vw;
+  top: 10vw;
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 2%;
+  padding: 0;
+  height: 80%;
   display: flex;
 
   & button {

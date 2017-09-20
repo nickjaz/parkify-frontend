@@ -11,6 +11,8 @@ import {fetchProfileRequest} from '../../actions/profile-actions.js';
 import * as util from '../../lib/utilities.js';
 import Header from '../header';
 
+import HostContainer from '../host-container';
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -26,6 +28,7 @@ class App extends React.Component {
             <Route path='/welcome/:auth' component={LandingContainer} />
             <Route exact path='/search' component={Search} />
             <Route exact path='/settings' component={SettingsContainer} />
+            <Route exact path='/addalot' component={HostContainer} />
           </main>
         </div>
       </BrowserRouter>
