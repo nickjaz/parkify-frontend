@@ -30,14 +30,14 @@ class Navbar extends React.Component {
   }
 
   render() {
-    let {url} = this.props.match;
+    // let {url} = this.props.match;
     return (
       <nav>
         <ul>
-          <NavLink route='nav link' url={url} />
-          <NavLink route='nav link' url={url} />
-          <NavLink route='nav link' url={url} />
-          <NavLink route='nav link' url={url} />
+          <NavLink route='nav link' />
+          <NavLink route='nav link' />
+          <NavLink route='nav link' />
+          <NavLink route='nav link' />
         </ul>
 
         {util.renderIf(this.props.loggedIn,

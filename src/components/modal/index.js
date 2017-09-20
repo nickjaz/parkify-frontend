@@ -6,10 +6,10 @@ class Modal extends React.Component {
   render() {
     return (
       <section className='modal'>
-        <button onClick={this.props.close}>X</button>
         <div className='modal-contents'>
           {this.props.children}
         </div>
+        { this.props.showClose ? <button onClick={this.props.close}>X</button> : undefined }
       </section>
     );
   }
@@ -17,7 +17,8 @@ class Modal extends React.Component {
 
 Modal.propTypes = {
   children: PropTypes.array,
-  close: PropTypes.func
+  close: PropTypes.func,
+  showClose: PropTypes.bool
 };
 
 export default Modal;
