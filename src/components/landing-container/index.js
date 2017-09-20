@@ -1,50 +1,53 @@
+import './_landing-container.scss';
 import React from 'react';
 import {connect} from 'react-redux';
 import AuthForm from '../auth-form';
-import * as util from '../../lib/util.js';
+import * as utilities from '../../lib/utilities.js';
 import {signupRequest, loginRequest} from '../../actions/auth-actions.js';
-import {fetchProfileRequest} from '../../actions/user-actions';
+import {fetchProfileRequest} from '../../actions/profile-actions.js';
+import PropTypes from 'prop-types';
+import Logo from '../../assets/logo.svg';
 
 class LandingContainer extends React.Component {
   constructor(props) {
     super(props);
 
-    this.handleLogin = this.handleLogin.bind(this);
-    this.handleSignup = this.handleSignup.bind(this);
+    this.validateRoute = this.validateRoute.bind(this);
   }
 
-  componentWillReceiveProps(props) {
-    if(props.auth && props.profile)
-      props.history.replace('/search');
-    if(props.auth && !props.profile)
-      props.history.replace('/settings');
+  componentDidMount() {
+    this.validateRoute(this.props);
+    let header = document.getElementsByTagName('header')[0];
+    header.classList.add('hidden');
   }
 
-  handleLogin(user) {
-    let {fetchProfile, history} = this.props;
-    return this.props.login(user)
-    .then(() => fetchProfile())
-    .then(() => history.push('/search'))
-    .catch(uitl.logError);
+  componentWillUnmount() {
+    let header = document.getElementsByTagName('header')[0];
+    header.classList.remove('hidden');
   }
 
-  handleSignup(user) {
-    return this.props.signup(user)
-    .then(() => {
-      this.props.history.push('/settings')
-    })
-    .catch(util.logError)
+  validateRoute(props) {
+    let {history} = props;
+    let token = utilities.readCookie('X-Parkify-Token');
+
+    if (token){
+      history.replace('/search');
+    }
   }
 
   render() {
     let {params} = this.props.match;
 
     let handleComplete = params.auth === 'login'
-      ? this.handleLogin
-      : this.handSignup;
+      ? this.props.login
+      : this.props.signup;
 
     return (
-      <div>
+      <div className='landing-container'>
+        <div id='title-container'>
+          <Logo id='logo' />
+          <h1 id='title'>Parkify</h1>
+        </div>
         <AuthForm
           auth={params.auth}
           onComplete={handleComplete}
@@ -53,6 +56,16 @@ class LandingContainer extends React.Component {
     );
   }
 }
+
+LandingContainer.propTypes = {
+  auth: PropTypes.string,
+  profile: PropTypes.object,
+  history: PropTypes.object,
+  fetchProfile: PropTypes.func,
+  login: PropTypes.func,
+  signup: PropTypes.func,
+  match: PropTypes.object
+};
 
 let mapStateToProps = (state) => ({
   auth: state.auth,
