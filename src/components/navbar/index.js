@@ -1,8 +1,7 @@
 import './_navbar.scss';
 import React from 'react';
 import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
-
+import {Link, withRouter} from 'react-router-dom';
 import {setToken} from '../../actions/auth-actions.js';
 import * as util from '../../lib/utilities.js';
 import * as authActions from '../../actions/auth-actions.js';
@@ -30,19 +29,14 @@ class Navbar extends React.Component {
   }
 
   render() {
-    // let {url} = this.props.match;
     return (
       <nav>
         <ul>
-          <li>Home</li>
-          <li>Lots</li>
-          <li>Setting</li>
-          <li className='logout'>Logout</li>
+          <li><Link to='/search'>Home</Link></li>
+          <li><Link to='/lots'>Lots</Link></li>
+          <li><Link to='/settings'>Settings</Link></li>
+          <li className='logout' onClick={this.handleLogout}>Logout</li>
         </ul>
-
-        {util.renderIf(this.props.loggedIn,
-          <button onClick={this.handleLogout}>logout</button>
-        )}
       </nav>
     );
   }
@@ -73,4 +67,4 @@ let mapDispatchToProps = (dispatch) => ({
   fetchProfile: () => dispatch(fetchProfileRequest()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Navbar));
