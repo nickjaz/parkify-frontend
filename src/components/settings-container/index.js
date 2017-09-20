@@ -44,7 +44,7 @@ class SettingsContainer extends React.Component {
 }
 
 SettingsContainer.propTypes = {
-  cars: PropTypes.array,
+  cars: PropTypes.object,
   createCar: PropTypes.func,
   fetchCars: PropTypes.func
 };
