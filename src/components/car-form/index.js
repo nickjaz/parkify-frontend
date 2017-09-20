@@ -36,9 +36,7 @@ class CarForm extends React.Component {
     e.preventDefault();
     this.props.onComplete(this.state);
   }
-
-
-
+  
   render() {
     return (
       <div>
@@ -69,7 +67,7 @@ class CarForm extends React.Component {
 
           <input
             name='licensePlate'
-            type='number'
+            type='text'
             placeholder='License Number'
             value={this.state.licensePlate}
             onChange={this.handleChange}
