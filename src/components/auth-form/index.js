@@ -40,6 +40,7 @@ class AuthForm extends React.Component {
     this.props.onComplete(this.state)
     .then(() => {
       this.setState({ name: '', password: '', email: '' });
+      this.props.history.replace('/search');
     })
     .catch( error => {
       console.error(error);
