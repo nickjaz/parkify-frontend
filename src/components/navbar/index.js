@@ -55,14 +55,14 @@ class Navbar extends React.Component {
     return (
       <nav>
         <ul>
-          <NavLink route='nav link' url={url} />
-          <NavLink route='nav link' url={url} />
-          <NavLink route='nav link' url={url} />
-          <NavLink route='nav link' url={url} />
+          <li>Home</li>
+          <li>Lots</li>
+          <li>Setting</li>
+          <li className='logout'>Logout</li>
         </ul>
       </nav>
     )}
-    
+
     {util.renderIf(this.props.loggedIn,
     <button onClick={this.handleLogout}>logout</button>
   )}
