@@ -1,38 +1,38 @@
 header {
   margin: 0;
   font-size: 5vw;
-  height: 9vw;
-  padding: 2vw;
-  background: 	#006d16;
+  height: 10vw;
+  background: #004a14;
   box-sizing: border-box;
   display: flex;
   align-items: center;
+  margin-bottom: 2vw;
 
   & button {
-    background: #444;
+    background: #001910;
+    position: absolute;
     border: none;
-    border-radius: 5%;
     color: #fff;
-    height: 100%;
-    margin-right: 20px;
-    float: left;
-    font-size: 3vw;
+    height: 10vw;
+    width: 10vw;
+    font-size: 8vw;
     cursor: pointer;
-  }
-}
 
-.logout {
-  float: right;
-  margin-right: 2vw;
-  cursor: pointer;
-  font-size: 1.25rem;
+  & .logout {
+      float: right;
+      margin-right: 2vw;
+      cursor: pointer;
+      font-size: 1.25rem;
 
-  &:hover {
-    color: #aaa;
+      &:hover {
+        color: #aaa;
+      }
+    }
   }
 }
 
 #header-title-container {
+  margin: 0 auto;
   flex: 1;
   text-align: center;
 }
@@ -40,7 +40,7 @@ header {
 #header-title {
   font-family: 'Roboto Condensed', sans-serif;
   color: white;
-  font-size: 1em;
+  font-size: 1.5em;
   text-shadow: 1px 1px 10px #777;
   text-align: center;
   margin-left: 15px;
@@ -50,7 +50,7 @@ header {
 }
 
 #header-logo {
-  height: 30px;
-  width: 30px;
+  height: 8vw;
+  width: 8vw;
   display: inline-block;
 }

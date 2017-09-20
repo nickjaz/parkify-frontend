@@ -1,24 +1,13 @@
 import './_navbar.scss';
 import React from 'react';
 import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
-
+import {Link, withRouter} from 'react-router-dom';
 import {setToken} from '../../actions/auth-actions.js';
 import * as util from '../../lib/utilities.js';
 import * as authActions from '../../actions/auth-actions.js';
 import {fetchProfileRequest} from '../../actions/profile-actions.js';
 
 import PropTypes from 'prop-types';
-
-import HostContainer from '../host-container';
-
-let NavLink = (props) => (
-  <li className={util.classToggler({selected: props.url === `/${props.route}` })} >
-    <Link to={`/${props.route}`}>
-      {props.route}
-    </Link>
-  </li>
-);
 
 class Navbar extends React.Component {
   constructor(props){
@@ -32,20 +21,14 @@ class Navbar extends React.Component {
   }
 
   render() {
-    // let {url} = this.props.match;
     return (
-      <nav>
-        <ul>
-          <NavLink route='nav link' />
-          <NavLink route='nav link' />
-          <NavLink route='nav link' />
-          <NavLink route='addalot' />
-        </ul>
-
-        {util.renderIf(this.props.loggedIn,
-          <button onClick={this.handleLogout}>logout</button>
-        )}
-      </nav>
+      <ul>
+        <Link to='/search'><li><span>Search</span></li></Link>
+        <Link to='/lots'><li><span>Host</span></li></Link>
+        <Link to='/settings'><li><span>Settings</span></li></Link>
+        <Link to='/addalot'><li><span>Settings</span></li></Link>
+        <li className='logout' onClick={this.handleLogout}><span>Logout</span></li>
+      </ul>
     );
   }
 }
@@ -59,11 +42,6 @@ Navbar.propTypes = {
   setToken: PropTypes.func,
 };
 
-NavLink.propTypes = {
-  url: PropTypes.string,
-  route: PropTypes.string
-};
-
 let mapStateToProps = (state) => ({
   loggedIn: !!state.auth,
   profile: state.profile,
@@ -75,4 +53,4 @@ let mapDispatchToProps = (dispatch) => ({
   fetchProfile: () => dispatch(fetchProfileRequest()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Navbar));
