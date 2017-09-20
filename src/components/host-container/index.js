@@ -53,7 +53,7 @@ const mapDispatchToProps = (dispatch, getState) => {
 };
 
 HostContainer.propTypes = {
-  lots: PropTypes.arr,
+  lots: PropTypes.array,
   createLot: PropTypes.func,
   fetchHostLots: PropTypes.func
 };

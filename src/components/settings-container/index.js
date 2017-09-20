@@ -36,7 +36,7 @@ class SettingsContainer extends React.Component {
 
         <div className='car-list'>
           <p>Your saved cars</p>
-          {this.props.cars.map(car => <CarItem key={car._id} car={car} />)}
+          {this.props.profile.cars.map(car => <CarItem key={car._id} car={car} />)}
         </div>
       </div>
     );
@@ -44,13 +44,13 @@ class SettingsContainer extends React.Component {
 }
 
 SettingsContainer.propTypes = {
-  cars: PropTypes.object,
+  profile: PropTypes.object,
   createCar: PropTypes.func,
   fetchCars: PropTypes.func
 };
 
 let mapStateToProps = (state) => ({
-  cars: state.profile.cars
+  profile: state.profile
 });
 
 let mapDispatchToProps = (dispatch) => ({
