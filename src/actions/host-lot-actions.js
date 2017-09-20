@@ -33,6 +33,10 @@ export const fetchLotsRequest = () => (dispatch, getState) => {
 
 export const createLotRequest = (lot) => (dispatch, getState) => {
   let {auth} = getState();
+  auth = JSON.parse(auth);
+  auth = auth.tokenHash;
+  console.log('auth:', auth);
+  console.log('lot:', lot);
 
   return superagent.post(`${__API_URL__}/lot`)
   .set('Authorization', `Bearer ${auth}`)

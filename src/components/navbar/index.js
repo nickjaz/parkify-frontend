@@ -10,6 +10,8 @@ import {fetchProfileRequest} from '../../actions/profile-actions.js';
 
 import PropTypes from 'prop-types';
 
+import HostContainer from '../host-container';
+
 let NavLink = (props) => (
   <li className={util.classToggler({selected: props.url === `/${props.route}` })} >
     <Link to={`/${props.route}`}>
@@ -37,7 +39,7 @@ class Navbar extends React.Component {
           <NavLink route='nav link' />
           <NavLink route='nav link' />
           <NavLink route='nav link' />
-          <NavLink route='nav link' />
+          <NavLink route='addalot' />
         </ul>
 
         {util.renderIf(this.props.loggedIn,
