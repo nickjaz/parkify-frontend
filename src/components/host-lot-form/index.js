@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class HostLotForm extends React.Component {
   constructor(props) {
@@ -88,5 +89,15 @@ class HostLotForm extends React.Component {
     );
   }
 }
+
+HostLotForm.propTypes = {
+  name: PropTypes.string,
+  description:PropTypes.string,
+  address: PropTypes.string,
+  price: PropTypes.string,
+  startTime: PropTypes.string,
+  endTime: PropTypes.string,
+};
+
 
 export default HostLotForm;

@@ -22,13 +22,12 @@ export const deleteLot = (lot) => ({
 
 export const fetchLotsRequest = () => (dispatch, getState) => {
   let {auth} = getState();
-  console.log('AUTH:', auth);
 
   return superagent.get(`${__API_URL__}/lots`)
   .set('Authorization', `Bearer ${auth}`)
   .then(response => {
-    console.log('FETCH LOTS:', getState());
     dispatch(fetchLots(response.body));
+    console.log('DA STATE:', getState());
     return response;
   });
 };
@@ -40,7 +39,7 @@ export const createLotRequest = (lot) => (dispatch, getState) => {
   .set('Authorization', `Bearer ${auth}`)
   .send(lot)
   .then(response => {
-    dispatch(createLot(lot));
+    dispatch(fetchLotsRequest());
     console.log('THE STATE AFTER THE GET:', getState());
     return response;
   });

@@ -12,22 +12,28 @@ class HostContainer extends React.Component {
     super(props);
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.fetchHostLots()
     .catch(util.logError);
   }
 
   render() {
     return (
-      <div className='host-dashboard'>
-        <h2>Add a Lot!</h2>
-        <HostLotForm
-          buttonText='Add Lot'
-          onComplete={(lot) => {
-            return this.props.createLot(lot)
-            .catch(console.error);
-          }}
-        />
+      <div>
+        <div className='host-dashboard'>
+          <h2>Add a Lot!</h2>
+          <HostLotForm
+            buttonText='Add Lot'
+            onComplete={(lot) => {
+              return this.props.createLot(lot)
+              .catch(console.error);
+            }}
+          />
+        </div>
+        
+        {this.props.lots.map((lot) =>
+          <HostLotItem key={lot._id} lot={lot} />
+        )}
       </div>
     );
   }
@@ -35,7 +41,7 @@ class HostContainer extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    lots: state.lots
+    lots: state.hostLots,
   };
 };
 
@@ -47,7 +53,9 @@ const mapDispatchToProps = (dispatch, getState) => {
 };
 
 HostContainer.propTypes = {
-  profile: PropTypes.func,
+  lots: PropTypes.arr,
+  createLot: PropTypes.func,
+  fetchHostLots: PropTypes.func
 };
 
 
