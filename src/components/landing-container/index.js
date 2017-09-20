@@ -36,8 +36,7 @@ class LandingContainer extends React.Component {
         this.props.setToken(token);
       }
 
-      this.props.fetchProfile()
-      .then(() => history.replace('/search'));
+      history.replace('/search');
     }
   }
 
