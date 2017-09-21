@@ -1,10 +1,5 @@
 import superagent from 'superagent';
 
-export const fetchSpots = (spots) => ({
-  type: 'FETCH_SPOTS',
-  payload: spots
-});
-
 export const createSpot = (spot) => ({
   type: 'CREATE_SPOT',
   payload: spot
@@ -20,17 +15,6 @@ export const deleteSpot = (spot) => ({
   payload: spot
 });
 
-export const fetchSpotsRequest = (spot) => (dispatch, getState) => {
-  let {auth} = getState();
-
-  return superagent.get(`${__API_URL__}/lot/${spot.lotID}/spots`)
-  .set('Authorization', `Bearer ${auth}`)
-  .then(response => {
-    dispatch(fetchSpots(response.body));
-    return response;
-  });
-};
-
 export const createSpotRequest = (spot) => (dispatch, getState) => {
   let {auth} = getState();
 
@@ -38,7 +22,7 @@ export const createSpotRequest = (spot) => (dispatch, getState) => {
   .set('Authorization', `Bearer ${auth}`)
   .send(spot)
   .then(response => {
-    dispatch(fetchSpotsRequest(spot));
+    dispatch(createSpot(spot));
     return response;
   });
 };

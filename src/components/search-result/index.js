@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import * as util from '../../lib/utilities.js';
-import SpotForm from '../spot-form'
+import SpotForm from '../spot-form';
 
 class SearchResult extends React.Component {
   constructor(props) {
