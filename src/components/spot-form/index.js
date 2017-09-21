@@ -10,36 +10,32 @@ class SpotForm extends React.Component {
     super(props);
   }
 
-      reserved: bool,
-      startTime: number,
-      hours: number,
-      date: date
-    }
-  }
-
   render() {
+    let spotsAvailable;
 
     return (
-      Spots available:
+      <div>
+        Spots available:
 
-      {util.renderIf(spotsAvailable > 0,
-        <form className='spot-form'
-          onSubmit='handleSubmit'>
-          <input
-            name='startTime'
-            type='datetime-local'
-            placeholder='starting time'
-          />
-          <input
-            name='hours'
-            type='number'
-            placeholder='hours'
-          />
+        {util.renderIf(spotsAvailable > 0,
+          <form className='spot-form'
+            onSubmit='handleSubmit'>
+            <input
+              name='startTime'
+              type='datetime-local'
+              placeholder='starting time'
+            />
+            <input
+              name='hours'
+              type='number'
+              placeholder='hours'
+            />
 
-          <button type='submit'>Reserve</button>
+            <button type='submit'>Reserve</button>
           </form>
-      )}
-    )
+        )}
+      </div>
+    );
   }
 }
 
