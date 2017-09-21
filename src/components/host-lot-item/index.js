@@ -1,3 +1,4 @@
+import './_host-lot-item.scss';
 import React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
@@ -40,14 +41,15 @@ export class HostLotItem extends React.Component {
     let {updating} = this.state;
 
     return (
-      <div>
+      <div className='host-lot-form'>
         {util.renderIf(!updating,
           <div>
-            <h3>{lot.name}</h3>
-            <button onClick={this.handleDelete}>remove</button>
-            <button onClick={() => {
+            <h3 className='lot-name'>{lot.name}</h3>
+            <button className='remove' onClick={this.handleDelete}>X</button>
+            <button className='edit' onClick={() => {
               this.setState({ updating: true });
-            }}>edit</button>
+              console.log('before the reveal LOT:', lot);
+            }}>Edit</button>
           </div>
         )}
 

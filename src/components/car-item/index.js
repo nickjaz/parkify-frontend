@@ -49,7 +49,7 @@ class CarItem extends React.Component {
             <p>plate #: {car.licensePlate}</p>
             <button
               className='edit'
-              onClick={() => this.setState({ updating: true })}>edit</button>
+              onClick={() => this.setState({ updating: true })}>Edit</button>
           </div>
         )}
 
