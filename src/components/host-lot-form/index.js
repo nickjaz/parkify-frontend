@@ -5,13 +5,19 @@ class HostLotForm extends React.Component {
   constructor(props) {
     super(props);
 
+    let d = new Date();
+    let h = (d.getHours() < 10 ? '0' : '') + d.getHours();
+    let m = (d.getMinutes() < 10 ? '0' : '') + d.getMinutes();
+
+    let defaultTime = h + ':' + m;
+
     this.state = {
       name: props.lot ? props.lot.name : '',
-      description: props.lot ? props.lot.description: '',
-      address: props.lot ? props.lot.address: '',
-      price: props.lot ? props.lot.prices[0].price: 0,
-      startTime: props.lot ? props.lot.prices[0].startTime: '',
-      endTime: props.lot ? props.lot.prices[0].endTime: ''
+      description: props.lot ? props.lot.description : '',
+      address: props.lot ? props.lot.address : '',
+      price: props.lot ? props.lot.prices[0].price : 0,
+      startTime: props.lot ? props.lot.prices[0].startTime : defaultTime,
+      endTime: props.lot ? props.lot.prices[0].endTime : defaultTime
     };
 
     this.handleHostLotFormChange = this.handleHostLotFormChange.bind(this);
@@ -19,10 +25,11 @@ class HostLotForm extends React.Component {
   }
 
   handleHostLotFormChange(e) {
-    let {name, description, address, price, startTime, endtime, value} = e.target;
+    console.log(e.target);
+    let {name, value} = e.target;
 
     this.setState({
-      [name]: value
+      [name]: value,
     });
   }
 
@@ -70,7 +77,7 @@ class HostLotForm extends React.Component {
 
         <input
           name='endTime'
-          type='text'
+          type='time'
           placeholder='endTime'
           value={this.state.endTime}
           onChange={this.handleHostLotFormChange}
@@ -78,7 +85,7 @@ class HostLotForm extends React.Component {
 
         <input
           name='startTime'
-          type='text'
+          type='time'
           placeholder='startTime'
           value={this.state.startTime}
           onChange={this.handleHostLotFormChange}
@@ -97,6 +104,9 @@ HostLotForm.propTypes = {
   price: PropTypes.string,
   startTime: PropTypes.string,
   endTime: PropTypes.string,
+  lot: PropTypes.object,
+  onComplete: PropTypes.func,
+  buttonText: PropTypes.string
 };
 
 
