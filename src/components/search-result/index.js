@@ -1,3 +1,4 @@
+import './_search-result.scss';
 import React from 'react';
 import PropTypes from 'prop-types';
 import * as util from '../../lib/utilities.js';
@@ -16,15 +17,20 @@ class SearchResult extends React.Component {
     let {lot} = this.props;
 
     return (
-    
+
       <div className='search-result'>
         <h3 className='lot-name'>{lot.name}</h3>
         <p className='lot-address'>{lot.address}</p>
         <p className='lot-description'>{lot.description}</p>
-        <button onClick={() => this.setState({ reserving: true })}>Reserve</button>
+
+        {util.renderIf(!this.state.reserving,
+          <button className='reserve' onClick={() => this.setState({ reserving: true })}>Reserve</button>
+        )}
 
         {util.renderIf(this.state.reserving,
-          <ReservationForm lot={lot} />
+          <ReservationForm lot={lot} stopReserving={() => {
+            this.setState({ reserving: false});
+          }} />
         )}
       </div>
     );

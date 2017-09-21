@@ -1,0 +1,43 @@
+@import '../../style/lib/vars';
+
+.search-result {
+  position: relative;
+
+  h3 {
+    display: inline-block;
+    font-size: 4vw;
+    margin-left: 2.5%;
+    width: 75%;
+  }
+
+  p {
+    display: inline-block;
+    margin: ($gutter-sm / 2) $gutter-sm;
+    width: 50%;
+  }
+
+  button {
+    // border: $color-primary solid 2px;
+    border-radius: 3px;
+    padding: ($gutter-sm / 3) $gutter-sm;
+    background: $white;
+    color: $color-primary;
+    outline: none;
+    margin: $gutter-sm;
+    font-size: 2vw;
+  }
+
+  .reserve {
+    color: $color-primary;
+    border: 2px solid $color-primary;
+    position: absolute;
+    top: 0;
+    right: 0;
+    float: right;
+
+    &:hover {
+      background: $color-primary;
+      color: $white;
+    }
+  }
+}
