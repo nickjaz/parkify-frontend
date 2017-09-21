@@ -10,7 +10,7 @@ import * as hostLotActions from '../../actions/host-lot-actions.js';
 export class HostLotItem extends React.Component {
   constructor(props) {
     super(props);
-
+  
     this.state = {
       updating: false
     };
