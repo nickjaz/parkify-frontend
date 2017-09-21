@@ -23,12 +23,12 @@ class SpotForm extends React.Component {
             <input
               name='startTime'
               type='datetime-local'
-              placeholder='starting time'
+              placeholder='start time'
             />
             <input
-              name='hours'
-              type='number'
-              placeholder='hours'
+              name='endTime'
+              type='datetime-local'
+              placeholder='end time'
             />
 
             <button type='submit'>Reserve</button>
