@@ -12,9 +12,9 @@ h1, h2, h3 {
 
 h2 {
   font-size: 5vw;
-  margin-left: $gutter-sm / 2;
   margin-bottom: $gutter-lg;
   margin-top: $gutter-sm;
+  margin-left: $gutter-sm;
 }
 
 h3 {
@@ -50,17 +50,18 @@ form {
   }
 
   button {
-    border: none;
+    border: $color-primary solid 2px;
     border-radius: $border-radius;
     padding: ($gutter-sm / 2) $gutter-sm;
-    background: $color-secondary;
-    color: $white;
+    background: $white;
+    color: $color-primary;
     outline: none;
     margin: $gutter-sm;
     font-size: 3vw;
 
     &:hover {
       background: $color-primary;
+      color: $white;
     }
   }
 }

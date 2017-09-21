@@ -1,3 +1,4 @@
+import './_car-form.scss';
 import React from 'react';
 import PropTypes from 'prop-types';
 

@@ -1,0 +1,53 @@
+@import '../../style/lib/vars';
+
+.car-item {
+  position: relative;
+
+  h3 {
+    display: inline-block;
+    font-size: 4vw;
+    margin-left: 2.5%;
+    width: 75%;
+  }
+
+  p {
+    display: inline-block;
+    margin: ($gutter-sm / 2) $gutter-sm;
+    width: 50%;
+  }
+
+  button {
+    border-radius: $border-radius;
+    // padding: ($gutter-sm / 2) $gutter-sm;
+    background: $white;
+    outline: none;
+    font-size: 2vw;
+  }
+
+  .remove {
+    color: $error;
+    border: 2px solid $error;
+    position: absolute;
+    top: 0;
+    right: 0;
+    float: right;
+
+    &:hover {
+      background: $error;
+      color: $white;
+    }
+  }
+
+  .edit {
+    color: $edit;
+    border: 2px solid $edit;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    &:hover {
+      background: $edit;
+      color: $white;
+    }
+  }
+}
