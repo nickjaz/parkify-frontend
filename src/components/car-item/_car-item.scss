@@ -11,17 +11,17 @@
   }
 
   p {
-    display: inline;
+    display: inline-block;
     margin: ($gutter-sm / 2) $gutter-sm;
     width: 50%;
   }
 
   button {
     border-radius: $border-radius;
-    padding: ($gutter-sm / 2) $gutter-sm;
+    // padding: ($gutter-sm / 2) $gutter-sm;
     background: $white;
     outline: none;
-    font-size: 3vw;
+    font-size: 2vw;
   }
 
   .remove {
@@ -30,6 +30,7 @@
     position: absolute;
     top: 0;
     right: 0;
+    float: right;
 
     &:hover {
       background: $error;
