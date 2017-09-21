@@ -38,19 +38,21 @@ export const createCarRequest = (car) => (dispatch,getState) => {
   .set('Authorization', `Bearer ${auth}`)
   .send(car)
   .then(response => {
-    dispatch(createCar(car));
+    dispatch(fetchCarsRequest());
     return response;
   });
 };
 
 export const updateCarRequest = (car) => (dispatch, getState) => {
   let {auth} = getState();
+  console.log('__CAR_REQUEST__', car);
 
-  return superagent.put(`${__API_URL__}/car/${car.id}`)
+  return superagent.put(`${__API_URL__}/car/${car._id}`)
   .set('Authorization', `Bearer ${auth}`)
   .send(car)
   .then(response => {
-    dispatch(updateCar);
+    console.log('__CAR_REQUEST__', car);
+    dispatch(updateCar(response.body));
     return response;
   });
 };

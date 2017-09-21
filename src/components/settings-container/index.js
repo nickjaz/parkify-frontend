@@ -36,7 +36,7 @@ class SettingsContainer extends React.Component {
 
         <div className='car-list'>
           <p>Your saved cars</p>
-          {this.props.profile.cars.map((car,index) => <CarItem key={index} car={car} />)}
+          {this.props.profile.cars.map((car, index) => <CarItem key={index} car={car} />)}
         </div>
       </div>
     );
