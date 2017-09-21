@@ -44,11 +44,11 @@ export class HostLotItem extends React.Component {
         {util.renderIf(!updating,
           <div>
             <h3>{lot.name}</h3>
-            <button onClick={this.handleDelete}>remove</button>
+            <button onClick={this.handleDelete}>Remove</button>
             <button onClick={() => {
               this.setState({ updating: true });
               console.log('before the reveal LOT:', lot);
-            }}>edit</button>
+            }}>Edit</button>
           </div>
         )}
 
