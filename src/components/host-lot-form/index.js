@@ -15,14 +15,8 @@ class HostLotForm extends React.Component {
 
     let d = year + '-' + month + '-' + date + 'T' + hours + ':' + minutes;
 
-    this.state = {
-      name: props.lot ? props.lot.name : '',
-      description: props.lot ? props.lot.description : '',
-      address: props.lot ? props.lot.address : '',
-      price: props.lot ? props.lot.prices[0].price : 0,
-      startTime: props.lot ? props.lot.prices[0].startTime : d,
-      endTime: props.lot ? props.lot.prices[0].endTime : d
-    };
+    this.state = props.lot ?
+      props.lot : { name:  '', description: '', address: '', price: 0, startTime: d, endTime: d };
 
     this.handleHostLotFormChange = this.handleHostLotFormChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -71,7 +65,7 @@ class HostLotForm extends React.Component {
 
         <input
           name='price'
-          type='text'
+          type='number'
           placeholder='price'
           value={this.state.price}
           onChange={this.handleHostLotFormChange}
@@ -103,7 +97,7 @@ HostLotForm.propTypes = {
   name: PropTypes.string,
   description:PropTypes.string,
   address: PropTypes.string,
-  price: PropTypes.string,
+  price: PropTypes.number,
   startTime: PropTypes.string,
   endTime: PropTypes.string,
   lot: PropTypes.object,

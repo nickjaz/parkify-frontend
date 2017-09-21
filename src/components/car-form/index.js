@@ -1,13 +1,12 @@
 import React from 'react';
-import * as util from '../../lib/utilities.js';
+import PropTypes from 'prop-types';
 
 class CarForm extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = props.car
-    ? props.car
-    : { make: '', model: '', color: '',  licensePlate: '' }
+    this.state = props.car ?
+      props.car : { make: '', model: '', color: '',  licensePlate: '' };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -80,5 +79,11 @@ class CarForm extends React.Component {
     );
   }
 }
+
+CarForm.propTypes = {
+  car: PropTypes.obj,
+  onComplete: PropTypes.func,
+  buttonText: PropTypes.string
+};
 
 export default CarForm;

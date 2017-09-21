@@ -45,13 +45,11 @@ export const createCarRequest = (car) => (dispatch,getState) => {
 
 export const updateCarRequest = (car) => (dispatch, getState) => {
   let {auth} = getState();
-  console.log('__CAR_REQUEST__', car);
 
   return superagent.put(`${__API_URL__}/car/${car._id}`)
   .set('Authorization', `Bearer ${auth}`)
   .send(car)
   .then(response => {
-    console.log('__CAR_REQUEST__', car);
     dispatch(updateCar(response.body));
     return response;
   });

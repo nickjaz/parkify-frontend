@@ -21,7 +21,6 @@ class CarItem extends React.Component {
   handleDelete() {
     let {car} = this.props;
     return this.props.deleteCar(car)
-    .then(console.log(`${car.make} ${car.model} has been deleted`))
     .catch(error => {
       console.error(error);
     });

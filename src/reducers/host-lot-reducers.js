@@ -9,10 +9,10 @@ export default (state=[], action) => {
       return [payload, ...state];
 
     case 'UPDATE_LOT':
-      return state.map(lot => lot._id === payload.id ? payload : lot);
+      return state.map(lot => lot._id === payload._id ? payload : lot);
 
     case 'DELETE_LOT':
-      return state.filter(lot => lot._id !== payload.id);
+      return state.filter(lot => lot._id !== payload._id);
 
     default: return state;
   }
