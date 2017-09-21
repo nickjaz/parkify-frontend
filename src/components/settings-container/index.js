@@ -1,3 +1,4 @@
+import './_settings-container.scss';
 import React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
@@ -21,13 +22,17 @@ class SettingsContainer extends React.Component {
   render() {
     return (
       <div className='settings-container'>
+        <div className='cool-bar'>
+          <p>solving the citys parking problem</p>
+        </div>
         <h2>Settings</h2>
 
+        <h3>Update your profile</h3>
         <ProfileForm />
 
         <h3>Add a car</h3>
         <CarForm
-          buttonText='add'
+          buttonText='Add'
           onComplete={car => {
             return this.props.createCar(car)
             .catch(console.error);

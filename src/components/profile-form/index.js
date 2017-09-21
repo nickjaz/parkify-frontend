@@ -33,8 +33,6 @@ class ProfileForm extends React.Component {
         className='profile-form'
         onSubmit={this.handleSubmit} >
 
-        <h3>Update your profile</h3>
-
         <label htmlFor='name'>username:</label>
         <input
           type='text'

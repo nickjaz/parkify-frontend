@@ -21,7 +21,11 @@ class HostContainer extends React.Component {
     return (
       <div>
         <div className='host-dashboard'>
-          <h2>Add a Lot!</h2>
+          <div className='cool-bar'>
+            <p>solving the citys parking problem</p>
+          </div>
+
+          <h2>Lots</h2>
           <HostLotForm
             buttonText='Add Lot'
             onComplete={(lot) => {
