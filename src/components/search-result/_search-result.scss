@@ -17,36 +17,26 @@
   }
 
   button {
-    border-radius: $border-radius;
-    // padding: ($gutter-sm / 2) $gutter-sm;
+    // border: $color-primary solid 2px;
+    border-radius: 3px;
+    padding: ($gutter-sm / 3) $gutter-sm;
     background: $white;
+    color: $color-primary;
     outline: none;
+    margin: $gutter-sm;
     font-size: 2vw;
   }
 
-  .remove {
-    color: $error;
-    border: 2px solid $error;
+  .reserve {
+    color: $color-primary;
+    border: 2px solid $color-primary;
     position: absolute;
     top: 0;
     right: 0;
     float: right;
 
     &:hover {
-      background: $error;
-      color: $white;
-    }
-  }
-
-  .edit {
-    color: $edit;
-    border: 2px solid $edit;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-
-    &:hover {
-      background: $edit;
+      background: $color-primary;
       color: $white;
     }
   }

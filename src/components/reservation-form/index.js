@@ -33,7 +33,7 @@ class ReservationForm extends React.Component {
     reservation.lotID = this.props.lot._id;
     reservation.hostID = this.props.lot.userID;
     this.props.createReservation(reservation)
-    .then(response => console.log(response));
+    .then(() => this.props.stopReserving());
   }
 
   render() {
@@ -79,7 +79,8 @@ const mapDispatchToProps = (dispatch) => {
 ReservationForm.propTypes = {
   reservation: PropTypes.object,
   createReservation: PropTypes.func,
-  lot: PropTypes.object
+  lot: PropTypes.object,
+  stopReserving: PropTypes.func
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ReservationForm);
