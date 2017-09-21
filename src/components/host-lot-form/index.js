@@ -5,18 +5,16 @@ class HostLotForm extends React.Component {
   constructor(props) {
     super(props);
 
-    var now = new Date();
+    var now = new Date().toISOString().slice(0, 16);
 
-    let year = now.getFullYear();
-    let month = now.getMonth().toString().length === 1 ? '0' + (now.getMonth() + 1).toString() : now.getMonth() + 1;
-    let date = now.getDate().toString().length === 1 ? '0' + (now.getDate()).toString() : now.getDate();
-    let hours = now.getHours().toString().length === 1 ? '0' + now.getHours().toString() : now.getHours();
-    let minutes = now.getMinutes().toString().length === 1 ? '0' + now.getMinutes().toString() : now.getMinutes();
-
-    let d = year + '-' + month + '-' + date + 'T' + hours + ':' + minutes;
-
-    this.state = props.lot ?
-      props.lot : { name:  '', description: '', address: '', price: 0, startTime: d, endTime: d };
+    if (props.lot) {
+      this.state = props.lot;
+      this.state.startTime = props.lot.startTime.slice(0, 16);
+      this.state.endTime = props.lot.endTime.slice(0, 16);
+    }
+    else {
+      this.state = { name:  '', description: '', address: '', price: 0, startTime: now, endTime: now };
+    }
 
     this.handleHostLotFormChange = this.handleHostLotFormChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
