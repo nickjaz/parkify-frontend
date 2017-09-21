@@ -24,12 +24,12 @@ class SettingsContainer extends React.Component {
         <div className='cool-bar'>
           <p>solving the citys parking problem</p>
         </div>
-        <h2>Settings</h2>
+        <h2><i className='fa fa-cog'></i> Settings</h2>
 
-        <h3>Update your profile</h3>
+        <h3><i className='fa fa-id-card-o'></i> Update your profile</h3>
         <ProfileForm />
 
-        <h3>Add a car</h3>
+        <h3><i className='fa fa-car'></i> Add a car</h3>
         <CarForm
           buttonText='Add'
           onComplete={car => {

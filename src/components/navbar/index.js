@@ -33,7 +33,7 @@ class Navbar extends React.Component {
         </span></li></Link>
 
         <Link to='/addalot'><li><span>
-          <i className='fa fa-car'></i> Lots
+          <i className='fa fa-home'></i> Lots
         </span></li></Link>
 
         <li className='logout' onClick={this.handleLogout}><span>
