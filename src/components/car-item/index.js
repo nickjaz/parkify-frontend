@@ -45,7 +45,7 @@ class CarItem extends React.Component {
             <h3>{car.make} {car.model}</h3>
             <button
               className='remove'
-              onClick={this.handleDelete}>remove</button>
+              onClick={this.handleDelete}>X</button>
             <p>color: {car.color}</p>
             <p>license plate: {car.licensePlate}</p>
             <button

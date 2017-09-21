@@ -1,7 +1,7 @@
 @import '../../style/lib/vars';
 
 .car-item {
-
+  position: relative;
 
   h3 {
     display: inline-block;
@@ -17,28 +17,36 @@
   }
 
   button {
-    border: none;
     border-radius: $border-radius;
     padding: ($gutter-sm / 2) $gutter-sm;
-    color: $white;
+    background: $white;
     outline: none;
-    margin: $gutter-sm;
     font-size: 3vw;
   }
 
   .remove {
-    background: $error;
+    color: $error;
+    border: 2px solid $error;
+    position: absolute;
+    top: 0;
+    right: 0;
 
     &:hover {
-      background: $error-hover;
+      background: $error;
+      color: $white;
     }
   }
 
   .edit {
-    background: $edit;
+    color: $edit;
+    border: 2px solid $edit;
+    position: absolute;
+    right: 0;
+    bottom: 0;
 
     &:hover {
-      background: $edit-hover;
+      background: $edit;
+      color: $white;
     }
   }
 }
