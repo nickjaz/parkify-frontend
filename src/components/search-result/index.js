@@ -1,3 +1,4 @@
+import './_search-result.scss';
 import React from 'react';
 import PropTypes from 'prop-types';
 import * as util from '../../lib/utilities.js';
@@ -16,7 +17,7 @@ class SearchResult extends React.Component {
     let {lot} = this.props;
 
     return (
-    
+
       <div className='search-result'>
         <h3 className='lot-name'>{lot.name}</h3>
         <p className='lot-address'>{lot.address}</p>
