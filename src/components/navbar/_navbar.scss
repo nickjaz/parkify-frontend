@@ -1,13 +1,16 @@
+@import '../../style/lib/vars';
+
 nav {
   z-index: 2;
 
   .logout {
     text-align: center;
-    height: 10vw;
+    height: 15vw;
     background: #333;
     color: #555;
     transition: 350ms all;
     cursor: pointer;
+    padding: 0;
 
     &:hover {
       color: #999;
@@ -15,7 +18,7 @@ nav {
 
     & span {
       position: relative;
-      top: 20%;
+      top: 32%;
     }
   }
 
@@ -23,15 +26,16 @@ nav {
     text-align: center;
     text-decoration: none;
     transition: 350ms all;
-    color: #ddd;
+    color: $light-gray;
     cursor: pointer;
 
     & li {
       display: block;
       width: 100%;
-      height: 10vw;
+      height: 15vw;
       background: #777;
-
+      text-align: center;
+      box-sizing: border-box;
 
       &:hover {
         background: #444;
@@ -39,8 +43,7 @@ nav {
 
       & span {
         position: relative;
-        font-family: 'Roboto Condensed', sans-serif;
-        top: 25%;
+        font-family: $font-nav;
       }
     }
   }

@@ -85,7 +85,7 @@ class AuthForm extends React.Component {
           onChange={this.handleChange}
         />
 
-        <button type='submit'>{this.props.auth}</button>
+        <button className='start-button' type='submit'>{this.props.auth}</button>
 
         <button className='sign-up-button' onClick={this.redirectToSignup}>New user? Sign up here.</button>
         <div className='separator'></div>

@@ -30,10 +30,13 @@ class HostContainer extends React.Component {
             }}
           />
         </div>
-        
-        {this.props.lots.map((lot) =>
-          <HostLotItem key={lot._id} lot={lot} />
-        )}
+        <ul>
+          {this.props.lots.map((lot, index) =>
+            <li key={index}>
+              <HostLotItem lot={lot} />
+            </li>
+          )}
+        </ul>
       </div>
     );
   }

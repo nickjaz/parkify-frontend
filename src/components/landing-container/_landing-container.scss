@@ -1,3 +1,5 @@
+@import '../../style/lib/vars';
+
 .landing-container {
   height: 100%;
   background: url('https://s3-us-west-2.amazonaws.com/parkify-app/background.jpg') #666 no-repeat;
@@ -10,10 +12,10 @@
 }
 
 #title {
-  font-family: 'Roboto Condensed', sans-serif;
-  color: white;
+  font-family: $font-logo;
+  color: $white;
   font-size: 4em;
-  text-shadow: 1px 1px 10px #777;
+  // text-shadow: 1px 1px 10px #777;
   text-align: center;
   margin-left: 15px;
   display: inline-block;
@@ -31,9 +33,10 @@
 }
 
 #logo {
-  height: 50px;
-  width: 50px;
+  height: 70px;
+  width: 70px;
   display: inline-block;
+  fill: $white;
 }
 
 .hidden {
