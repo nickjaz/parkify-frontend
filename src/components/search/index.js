@@ -19,7 +19,8 @@ class Search extends React.Component {
         <div className='cool-bar'>
           <p>solving the citys parking problem</p>
         </div>
-        <h2><i className='fa fa-search'></i> Search</h2>
+        <h2><i className='fa fa-search'></i> Search </h2>
+        <p>Need a place to park? Find a spot!</p>
         <SearchBar />
         <div className='search-results'>
           {this.props.nearbyLots ? this.props.nearbyLots.map(lot => <SearchResult key={lot._id} lot={lot} />) : undefined}

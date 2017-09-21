@@ -22,6 +22,11 @@ h3 {
   margin-left: $gutter-sm;
 }
 
+p {
+  font-family: $font-content;
+  margin-left: $gutter-sm;
+}
+
 li {
   padding: $gutter-lg;
   background: linear-gradient($list-shade, $white);
