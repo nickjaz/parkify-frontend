@@ -36,12 +36,13 @@ class CarItem extends React.Component {
 
   render() {
     let {car} = this.props;
-    
+
     return (
       <div>
         {util.renderIf(!this.state.updating,
           <div>
             <p>placeholder car symbol</p>
+            <span>{car.model}</span>
             <button onClick={this.handleDelete}>remove</button>
             <button onClick={() => this.setState({ updating: true })}>edit</button>
           </div>
@@ -50,7 +51,7 @@ class CarItem extends React.Component {
         {util.renderIf(this.state.updating,
           <div>
             <CarForm
-              car={car}
+              car={this.props.car}
               buttonText='update'
               onComplete={this.handleUpdate}
             />

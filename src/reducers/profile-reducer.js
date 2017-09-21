@@ -22,16 +22,16 @@ export default (state=null, action) => {
       return null;
 
     case 'FETCH_CARS':
-      return {...state, cars: payload };
+      return {...state, cars: payload};
 
     case 'CREATE_CAR':
       return {...state, cars: [...state.cars, payload]};
 
     case 'UPDATE_CAR':
-      return {...state, cars: state.cars.map(car => car._id === payload.id ? payload : car)};
+      return {...state, cars: state.cars.map(car => car._id === payload._id ? payload : car)};
 
     case 'DELETE_CAR':
-      return {...state, cars: state.cars.filter(car => car._id !== payload.id)};
+      return {...state, cars: state.cars.filter(car => car._id !== payload._id)};
 
     default :
       return state;

@@ -4,12 +4,11 @@ import * as util from '../../lib/utilities.js';
 class CarForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      make: '',
-      model: '',
-      color: '',
-      licensePlate: ''
-    }
+
+    this.state = props.car
+    ? props.car
+    : { make: '', model: '', color: '',  licensePlate: '' }
+
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -21,20 +20,23 @@ class CarForm extends React.Component {
       try {
         this.setState({
           [name]: parseInt(value)
-        })
+        });
       } catch(err) {
         console.log(err);
       }
     } else {
       this.setState({
         [name]: value
-      })
+      });
     }
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.onComplete(this.state);
+    this.props.onComplete(this.state)
+    .then(() => {
+      this.setState({ make: '', model: '', color: '',  licensePlate: '' });
+    });
   }
 
   render() {
@@ -75,7 +77,8 @@ class CarForm extends React.Component {
           <button type='submit'>{this.props.buttonText}</button>
         </form>
       </div>
-    )
+    );
   }
 }
+
 export default CarForm;
