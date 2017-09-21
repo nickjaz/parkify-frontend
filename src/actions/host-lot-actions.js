@@ -51,12 +51,13 @@ export const createLotRequest = (lot) => (dispatch, getState) => {
 
 export const updateLotRequest = (lot) => (dispatch, getState) => {
   let {auth} = getState();
+  console.log('LOT in ACTION', lot);
 
   return superagent.put(`${__API_URL__}/lot/${lot._id}`)
   .set('Authorization', `Bearer ${auth}`)
   .send(lot)
   .then(response => {
-    dispatch(updateLot);
+    dispatch(updateLot(response.body));
     return response;
   });
 };

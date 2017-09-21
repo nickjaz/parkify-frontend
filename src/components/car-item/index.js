@@ -28,6 +28,7 @@ class CarItem extends React.Component {
   }
 
   handleUpdate(car) {
+    console.log('handleUpdate/car:', car);
     return this.props.updateCar(car)
     .then(() => {
       this.setState({ updating: false });

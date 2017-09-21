@@ -27,14 +27,13 @@ export class HostLotItem extends React.Component {
     });
   }
 
-  handleUpdate() {
-    console.log('UPDATE Button:');
-    // let {updateLot} = this.props;
-    //
-    // return updateLot(lot)
-    // .then(() => {
-    //   this.setState({ updating: false });
-    // });
+  handleUpdate(lot) {
+    let {updateLot} = this.props;
+    console.log('handleUpdate LOT:', lot);
+    return updateLot(lot)
+    .then(() => {
+      this.setState({ updating: false });
+    });
   }
 
   render() {
@@ -47,14 +46,17 @@ export class HostLotItem extends React.Component {
           <div>
             <h3>{lot.name}</h3>
             <button onClick={this.handleDelete}>remove</button>
-            <button onClick={() => this.setState({ updating: true })}>edit</button>
+            <button onClick={() => {
+              this.setState({ updating: true });
+              console.log('before the reveal LOT:', lot);
+            }}>edit</button>
           </div>
         )}
 
         {util.renderIf(updating,
           <div>
-            <HostLotItem
-              lot={lot}
+            <HostLotForm
+              lot={this.props.lot}
               buttonText='update'
               onComplete={this.handleUpdate}
             />
