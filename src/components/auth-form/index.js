@@ -87,7 +87,9 @@ class AuthForm extends React.Component {
 
         <button className='start-button' type='submit'>{this.props.auth}</button>
 
-        <button className='sign-up-button' onClick={this.redirectToSignup}>New user? Sign up here.</button>
+        {utilities.renderIf(this.props.auth === 'login',
+          <button className='sign-up-button' onClick={this.redirectToSignup}>New user? Sign up here.</button>
+        )}
         <div className='separator'></div>
 
         <GoogleOAuth />
