@@ -16,6 +16,7 @@ class SearchResult extends React.Component {
     let {lot} = this.props;
 
     return (
+    
       <div className='search-result'>
         <h3 className='lot-name'>{lot.name}</h3>
         <p className='lot-address'>{lot.address}</p>

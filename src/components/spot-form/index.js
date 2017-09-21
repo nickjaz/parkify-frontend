@@ -2,12 +2,13 @@ import React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
-import {createSpotRequest} from '../../action/spot-actions.js';
+import {createSpotRequest} from '../../actions/spot-actions.js';
 
 class SpotForm extends React.Component {
   constructor(props) {
     super(props);
 
+    console.log('**LOT_FROM_PROPS**', this.props.lot);
     // let spotAvailable = this.props.lot.spots.filter(spot => spot.reserved === false).pop();
 
     var now = new Date();
@@ -40,6 +41,8 @@ class SpotForm extends React.Component {
     spot.startTime = new Date(Date.parse(spot.startTime + ':00'));
     spot.endTime = new Date(Date.parse(spot.endTime + ':00'));
     // spot.reserved = true;
+    spot.lotID = this.props.lot._id;
+    console.log('**NEW_SPOT**', spot);
     this.props.createSpot(spot);
   }
 
@@ -47,7 +50,7 @@ class SpotForm extends React.Component {
     return (
       <div>
         <form className='spot-form'
-          onSubmit='handleSubmit'>
+          onSubmit={this.handleSubmit}>
           <input
             name='startTime'
             type='datetime-local'

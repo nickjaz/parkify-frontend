@@ -17,6 +17,8 @@ export const deleteSpot = (spot) => ({
 
 export const createSpotRequest = (spot) => (dispatch, getState) => {
   let {auth} = getState();
+  console.log('**STATE**', getState());
+  console.log('**SPOT**', spot);
 
   return superagent.post(`${__API_URL__}/lot/${spot.lotID}/spot`)
   .set('Authorization', `Bearer ${auth}`)
