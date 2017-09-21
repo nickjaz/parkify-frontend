@@ -45,7 +45,6 @@ export const createCarRequest = (car) => (dispatch,getState) => {
 
 export const updateCarRequest = (car) => (dispatch, getState) => {
   let {auth} = getState();
-  console.log('CAR in ACTION', car);
 
   return superagent.put(`${__API_URL__}/car/${car._id}`)
   .set('Authorization', `Bearer ${auth}`)

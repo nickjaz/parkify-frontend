@@ -29,7 +29,6 @@ export class HostLotItem extends React.Component {
 
   handleUpdate(lot) {
     let {updateLot} = this.props;
-    console.log('handleUpdate LOT:', lot);
     return updateLot(lot)
     .then(() => {
       this.setState({ updating: false });
