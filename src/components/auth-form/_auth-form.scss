@@ -1,3 +1,5 @@
+@import '../../style/lib/vars';
+
 .auth-form {
     margin: 0 auto;
     max-width: 400px;
@@ -25,10 +27,9 @@
     width: 100%;
     border-radius: 5px;
     border: none;
-    background-color: hsl(140, 52%, 55%);
+    background-color: $color-primary;
     text-transform: capitalize;
-    color: white;
-    text-shadow: 1px 1px #777;
+    color: $white;
     cursor: pointer;
     outline: none;
   }
@@ -50,5 +51,9 @@
     &:hover {
       text-decoration: underline;
     }
+  }
+
+  & .start-button:hover {
+    background-color: $color-secondary;
   }
 }

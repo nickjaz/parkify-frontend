@@ -1,3 +1,55 @@
 html, body, main, #root {
   height: 100%;
+  font-family: $font-content;
+  color: $black;
+  font-size: 3vw;
+}
+
+h1, h2, h3 {
+  font-family: $font-header;
+  font-weight: bold;
+  font-size: 4vw;
+}
+
+li {
+  padding: $gutter-lg;
+  background: linear-gradient($list-shade, $white, $list-shade);
+}
+
+form {
+  width: 100%;
+  box-sizing: border-box;
+  padding: $gutter-sm;
+  transition: $transition;
+
+  input {
+    width: 95%;
+    padding: $gutter-sm;
+    background: $white;
+    border-radius: $border-radius;
+    border: .5px solid $input-focus;
+    box-sizing: border-box;
+    margin: ($gutter-sm / 2) $gutter-sm;
+
+    &:focus {
+      background: $input-focus;
+      outline: none;
+      border-color: $light-gray;
+    }
+  }
+
+  button {
+    border: none;
+    border-radius: $border-radius;
+    padding: ($gutter-sm / 2) $gutter-sm;
+    background: $color-secondary;
+    color: $white;
+    outline: none;
+    margin: $gutter-sm;
+    font-size: 3vw;
+
+    &:hover {
+      background: $color-primary;
+    }
+  }
 }

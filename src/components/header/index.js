@@ -4,7 +4,7 @@ import Navbar from '../navbar';
 import {connect} from 'react-redux';
 import Modal from '../modal';
 import {logout} from '../../actions/auth-actions.js';
-import Logo from '../../assets/logo.svg';
+import Logo from '../../assets/parkify-car.svg';
 
 class Header extends React.Component {
   constructor(props) {

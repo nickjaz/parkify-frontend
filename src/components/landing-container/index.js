@@ -6,7 +6,7 @@ import * as utilities from '../../lib/utilities.js';
 import {signupRequest, loginRequest, setToken} from '../../actions/auth-actions.js';
 import {fetchProfileRequest} from '../../actions/profile-actions.js';
 import PropTypes from 'prop-types';
-import Logo from '../../assets/logo.svg';
+import Logo from '../../assets/parkify-car.svg';
 
 class LandingContainer extends React.Component {
   constructor(props) {
