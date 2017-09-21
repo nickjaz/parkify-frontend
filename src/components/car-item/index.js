@@ -22,7 +22,6 @@ class CarItem extends React.Component {
   handleDelete() {
     let {car} = this.props;
     return this.props.deleteCar(car)
-    .then(console.log(`${car.make} ${car.model} has been deleted`))
     .catch(error => {
       console.error(error);
     });
@@ -47,7 +46,7 @@ class CarItem extends React.Component {
               className='remove'
               onClick={this.handleDelete}>X</button>
             <p>color: {car.color}</p>
-            <p>license plate: {car.licensePlate}</p>
+            <p>plate #: {car.licensePlate}</p>
             <button
               className='edit'
               onClick={() => this.setState({ updating: true })}>edit</button>

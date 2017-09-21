@@ -50,17 +50,18 @@ form {
   }
 
   button {
-    border: none;
+    border: $color-primary solid 2px;
     border-radius: $border-radius;
     padding: ($gutter-sm / 2) $gutter-sm;
-    background: $color-secondary;
-    color: $white;
+    background: $white;
+    color: $color-primary;
     outline: none;
     margin: $gutter-sm;
     font-size: 3vw;
 
     &:hover {
       background: $color-primary;
+      color: $white;
     }
   }
 }
