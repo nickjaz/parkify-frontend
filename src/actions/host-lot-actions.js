@@ -67,7 +67,8 @@ export const deleteLotRequest = (lot) => (dispatch, getState) => {
   return superagent.delete(`${__API_URL__}/lot/${lot._id}`)
   .set('Authorization', `Bearer ${auth}`)
   .then(response => {
-    dispatch(deleteLotRequest(lot));
+    console.log('DELETE RESPONSE:', response);
+    dispatch(deleteLot(lot));
     return response;
   });
 };

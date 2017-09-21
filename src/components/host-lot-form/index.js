@@ -71,7 +71,7 @@ class HostLotForm extends React.Component {
 
         <input
           name='price'
-          type='text'
+          type='number'
           placeholder='price'
           value={this.state.price}
           onChange={this.handleHostLotFormChange}
@@ -103,7 +103,7 @@ HostLotForm.propTypes = {
   name: PropTypes.string,
   description:PropTypes.string,
   address: PropTypes.string,
-  price: PropTypes.string,
+  price: PropTypes.number,
   startTime: PropTypes.string,
   endTime: PropTypes.string,
   lot: PropTypes.object,
