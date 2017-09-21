@@ -1,3 +1,4 @@
+import './_car-item.scss';
 import React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
@@ -38,16 +39,18 @@ class CarItem extends React.Component {
     let {car} = this.props;
 
     return (
-      <div>
+      <div className='car-item'>
         {util.renderIf(!this.state.updating,
           <div>
-            <p>placeholder car symbol</p>
-            <p>make: {car.make}</p>
-            <p>model: {car.model}</p>
+            <h3>{car.make} {car.model}</h3>
+            <button
+              className='remove'
+              onClick={this.handleDelete}>remove</button>
             <p>color: {car.color}</p>
-            <p>license plate:{car.licensePlate}</p>
-            <button onClick={this.handleDelete}>remove</button>
-            <button onClick={() => this.setState({ updating: true })}>edit</button>
+            <p>license plate: {car.licensePlate}</p>
+            <button
+              className='edit'
+              onClick={() => this.setState({ updating: true })}>edit</button>
           </div>
         )}
 
