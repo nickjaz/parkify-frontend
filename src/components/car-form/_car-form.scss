@@ -1,0 +1,22 @@
+.car-form {
+  font-size:1.2vw;
+  margin: 2vw auto;
+  padding:2vw;
+  width:70%;
+}
+
+input[type='text'] {
+  background-color: black;
+  color: white;
+  font-size:2vw;
+  margin:.2vw 0 1vw;
+  padding: .25vw;
+  width:100%;
+  border-radius: 5px;
+}
+[type='text']:hover {
+  background-color: #004a14;
+}
+body {
+  background: #999;
+}
