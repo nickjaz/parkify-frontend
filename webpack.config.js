@@ -17,7 +17,8 @@ let plugins = [
   new DefinePlugin({
     '__DEBUG__': JSON.stringify('development'),
     '__API_URL__': JSON.stringify(process.env.API_URL),
-    '__GOOGLE_CLIENT_ID__': JSON.stringify(process.env.GOOGLE_CLIENT_ID)
+    '__GOOGLE_CLIENT_ID__': JSON.stringify(process.env.GOOGLE_CLIENT_ID),
+    '__GOOGLE_REDIRECT_URI__': JSON.stringify(process.env.GOOGLE_REDIRECT_URI)
   })
 ];
 
