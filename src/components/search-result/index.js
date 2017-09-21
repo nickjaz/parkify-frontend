@@ -2,7 +2,7 @@ import './_search-result.scss';
 import React from 'react';
 import PropTypes from 'prop-types';
 import * as util from '../../lib/utilities.js';
-import SpotForm from '../spot-form';
+import ReservationForm from '../reservation-form';
 
 class SearchResult extends React.Component {
   constructor(props) {
@@ -25,7 +25,7 @@ class SearchResult extends React.Component {
         <button onClick={() => this.setState({ reserving: true })}>Reserve</button>
 
         {util.renderIf(this.state.reserving,
-          <SpotForm lot={lot} />
+          <ReservationForm lot={lot} />
         )}
       </div>
     );

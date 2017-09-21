@@ -14,9 +14,6 @@ export default (state=[], action) => {
     case 'DELETE_LOT':
       return state.filter(lot => lot._id !== payload._id);
 
-    case 'CREATE_SPOT':
-      return {...state, spots: [...state.spots, payload]};
-
     default: return state;
   }
 };
