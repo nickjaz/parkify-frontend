@@ -1,4 +1,5 @@
 import './_navbar.scss';
+import FontAwesome from 'react-fontawesome';
 import React from 'react';
 import {connect} from 'react-redux';
 import {Link, withRouter} from 'react-router-dom';
@@ -23,9 +24,18 @@ class Navbar extends React.Component {
   render() {
     return (
       <ul>
-        <Link to='/search'><li><span>Search</span></li></Link>
-        <Link to='/settings'><li><span>Settings</span></li></Link>
-        <Link to='/addalot'><li><span>Lots</span></li></Link>
+        <Link to='/search'><li><span>
+          <i className='fa fa-search'></i> Search
+        </span></li></Link>
+
+        <Link to='/settings'><li><span>
+          <i className='fa fa-cog'></i> Settings
+        </span></li></Link>
+
+        <Link to='/addalot'><li><span>
+          Lots
+        </span></li></Link>
+
         <li className='logout' onClick={this.handleLogout}><span>Logout</span></li>
       </ul>
     );
