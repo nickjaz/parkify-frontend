@@ -25,6 +25,10 @@ h3 {
 li {
   padding: $gutter-lg;
   background: linear-gradient($list-shade, $white);
+
+  &:hover {
+    box-shadow: 5px 5px 5px 5px $black;
+  }
 }
 
 form {

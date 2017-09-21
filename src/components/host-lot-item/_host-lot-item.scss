@@ -21,10 +21,11 @@
   .remove {
     color: $error;
     border: 2px solid $error;
+    margin-left: auto;
     margin-bottom: 2%;
     position: absolute;
     top: 0;
-    // right: 0;
+    right: 35px;
     float: right;
 
     &:hover {
@@ -37,7 +38,7 @@
     color: $edit;
     border: 2px solid $edit;
     position: absolute;
-    right: 0;
+    // right: 0;
     bottom: 0;
 
     &:hover {
