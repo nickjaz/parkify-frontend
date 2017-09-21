@@ -33,6 +33,9 @@ export default (state=null, action) => {
     case 'DELETE_CAR':
       return {...state, cars: state.cars.filter(car => car._id !== payload._id)};
 
+    case 'CREATE_SPOT':      
+      return {...state, transactions: [...state.transactions, payload]};
+
     default :
       return state;
   }
