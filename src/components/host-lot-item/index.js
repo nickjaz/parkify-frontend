@@ -9,7 +9,7 @@ import * as hostLotActions from '../../actions/host-lot-actions.js';
 export class HostLotItem extends React.Component {
   constructor(props) {
     super(props);
-
+  
     this.state = {
       updating: false
     };
@@ -47,7 +47,6 @@ export class HostLotItem extends React.Component {
             <button onClick={this.handleDelete}>remove</button>
             <button onClick={() => {
               this.setState({ updating: true });
-              console.log('before the reveal LOT:', lot);
             }}>edit</button>
           </div>
         )}
