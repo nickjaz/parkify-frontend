@@ -5,19 +5,23 @@ class HostLotForm extends React.Component {
   constructor(props) {
     super(props);
 
-    let d = new Date();
-    let h = (d.getHours() < 10 ? '0' : '') + d.getHours();
-    let m = (d.getMinutes() < 10 ? '0' : '') + d.getMinutes();
+    var now = new Date();
 
-    let defaultTime = h + ':' + m;
+    let year = now.getFullYear();
+    let month = now.getMonth().toString().length === 1 ? '0' + (now.getMonth() + 1).toString() : now.getMonth() + 1;
+    let date = now.getDate().toString().length === 1 ? '0' + (now.getDate()).toString() : now.getDate();
+    let hours = now.getHours().toString().length === 1 ? '0' + now.getHours().toString() : now.getHours();
+    let minutes = now.getMinutes().toString().length === 1 ? '0' + now.getMinutes().toString() : now.getMinutes();
+
+    let d = year + '-' + month + '-' + date + 'T' + hours + ':' + minutes;
 
     this.state = {
       name: props.lot ? props.lot.name : '',
       description: props.lot ? props.lot.description : '',
       address: props.lot ? props.lot.address : '',
       price: props.lot ? props.lot.prices[0].price : 0,
-      startTime: props.lot ? props.lot.prices[0].startTime : defaultTime,
-      endTime: props.lot ? props.lot.prices[0].endTime : defaultTime
+      startTime: props.lot ? props.lot.prices[0].startTime : d,
+      endTime: props.lot ? props.lot.prices[0].endTime : d
     };
 
     this.handleHostLotFormChange = this.handleHostLotFormChange.bind(this);
@@ -25,17 +29,15 @@ class HostLotForm extends React.Component {
   }
 
   handleHostLotFormChange(e) {
-    console.log(e.target);
     let {name, value} = e.target;
-
-    this.setState({
-      [name]: value,
-    });
+    this.setState({ [name]: value });
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log('state:', this.state);
+    let lot = {...this.state};
+    lot.startTime = new Date(Date.parse(lot.startTime + ':00'));
+    lot.endTime = new Date(Date.parse(lot.endTime + ':00'));
     this.props.onComplete(this.state);
   }
 
@@ -77,7 +79,7 @@ class HostLotForm extends React.Component {
 
         <input
           name='endTime'
-          type='time'
+          type='datetime-local'
           placeholder='endTime'
           value={this.state.endTime}
           onChange={this.handleHostLotFormChange}
@@ -85,7 +87,7 @@ class HostLotForm extends React.Component {
 
         <input
           name='startTime'
-          type='time'
+          type='datetime-local'
           placeholder='startTime'
           value={this.state.startTime}
           onChange={this.handleHostLotFormChange}
