@@ -1,4 +1,5 @@
 import './_header.scss';
+import FontAwesome from 'react-fontawesome';
 import React from 'react';
 import Navbar from '../navbar';
 import {connect} from 'react-redux';
@@ -25,7 +26,9 @@ class Header extends React.Component {
   render() {
     return (
       <header className='header'>
-        <button onClick={this.toggleNav}>=</button>
+        <button onClick={this.toggleNav}>
+          <i className='fa fa-bars'></i>
+        </button>
         <div id='header-title-container'>
           <Logo id='header-logo' />
           <h3 id='header-title'>Parkify</h3>
