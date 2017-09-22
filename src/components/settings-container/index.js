@@ -23,7 +23,8 @@ class SettingsContainer extends React.Component {
     return (
       <div className='settings-container'>
         <Banner />
-        <h2><i className='fa fa-cog'></i> Settings</h2>
+        <div className='settings-content'>
+          <h2><i className='fa fa-cog'></i> Settings</h2>
           <h3><i className='fa fa-id-card-o'></i> Update your profile</h3>
           <ProfileForm />
 
@@ -37,7 +38,7 @@ class SettingsContainer extends React.Component {
           />
 
           <div className='car-list'>
-            <h3>Your saved cars</h3>
+            <h3><i className='fa fa-home'></i> Your saved cars</h3>
             <ul>
               {this.props.profile.cars.map((car, index) =>
                 <li key={index}>
