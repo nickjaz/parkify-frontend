@@ -46,7 +46,7 @@ class HostLotForm extends React.Component {
         />
 
         <input
-          name='descriptions'
+          name='description'
           type='text'
           placeholder='Description'
           value={this.state.description}
@@ -58,14 +58,6 @@ class HostLotForm extends React.Component {
           type='text'
           placeholder='Lot Address'
           value={this.state.address}
-          onChange={this.handleHostLotFormChange}
-        />
-
-        <input
-          name='price'
-          type='number'
-          placeholder='price'
-          value={this.state.price}
           onChange={this.handleHostLotFormChange}
         />
 

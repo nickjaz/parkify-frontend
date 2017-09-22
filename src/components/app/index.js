@@ -28,8 +28,8 @@ class App extends React.Component {
             <Route path='/welcome/:auth' component={LandingContainer} />
             <Route exact path='/search' component={Search} />
             <Route exact path='/settings' component={SettingsContainer} />
-            <Route exact path='/addalot' component={HostContainer} />
-            <Route exact path='/reservation' component={ReservationContainer} />
+            <Route exact path='/lots' component={HostContainer} />
+            <Route exact path='/reservations' component={ReservationContainer} />
           </main>
         </div>
       </BrowserRouter>
