@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import * as util from '../../lib/utilities.js';
 
-import {fetchProfileRequest} from '../../actions/profile-actions.js';
 import ReservationItem from '../reservation-item';
 
 class ReservationContainer extends React.Component {
