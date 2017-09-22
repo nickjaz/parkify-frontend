@@ -28,12 +28,12 @@ class Navbar extends React.Component {
           <i className='fa fa-search'></i> Search
         </span></li></Link>
 
-        <Link to='/settings'><li><span>
-          <i className='fa fa-cog'></i> Settings
-        </span></li></Link>
-
         <Link to='/addalot'><li><span>
           <i className='fa fa-home'></i> Lots
+        </span></li></Link>
+
+        <Link to='/settings'><li><span>
+          <i className='fa fa-cog'></i> Settings
         </span></li></Link>
 
         <li className='logout' onClick={this.handleLogout}><span>
