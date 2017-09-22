@@ -29,14 +29,13 @@ class Navbar extends React.Component {
         </span></li></Link>
 
         <Link to='/addalot'><li><span>
-          <i className='fa fa-home'></i> Lots
+          <i className='fa fa-plus-square'></i> Lots
         </span></li></Link>
 
         <Link to='/reservation'>
           <li>
             <span>
-              <i className='PLACEHOLDER'></i>
-              Reservations
+              <i className='fa fa-calendar'></i> Reservations
             </span>
           </li>
         </Link>
