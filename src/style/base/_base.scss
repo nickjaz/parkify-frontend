@@ -22,9 +22,10 @@ h3 {
   margin-left: $gutter-sm;
 }
 
-p {
-  font-family: $font-content;
+h4 {
   margin-left: $gutter-sm;
+  color: $dark-gray;
+  font-size: 3.5vw;
 }
 
 li {
@@ -50,6 +51,7 @@ form {
     border: .5px solid $input-focus;
     box-sizing: border-box;
     margin: ($gutter-sm / 2) $gutter-sm;
+    font-size: 3vw;
 
     &:focus {
       background: $input-focus;
@@ -61,7 +63,7 @@ form {
   button {
     border: $color-primary solid 2px;
     border-radius: $border-radius;
-    padding: ($gutter-sm / 2) $gutter-sm;
+    padding: $button-pad;
     background: $white;
     color: $color-primary;
     outline: none;

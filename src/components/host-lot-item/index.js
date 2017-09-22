@@ -10,7 +10,7 @@ import * as hostLotActions from '../../actions/host-lot-actions.js';
 export class HostLotItem extends React.Component {
   constructor(props) {
     super(props);
-  
+
     this.state = {
       updating: false
     };
@@ -57,7 +57,7 @@ export class HostLotItem extends React.Component {
           <div>
             <HostLotForm
               lot={this.props.lot}
-              buttonText='update'
+              buttonText='Update'
               onComplete={this.handleUpdate}
             />
           </div>

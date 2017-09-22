@@ -27,4 +27,3 @@ ReservationItem.propTypes = {
 
 
 export default ReservationItem;
-

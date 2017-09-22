@@ -57,7 +57,7 @@ class CarItem extends React.Component {
           <div>
             <CarForm
               car={this.props.car}
-              buttonText='update'
+              buttonText='Update'
               onComplete={this.handleUpdate}
             />
           </div>

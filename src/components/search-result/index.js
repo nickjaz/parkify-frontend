@@ -19,7 +19,10 @@ class SearchResult extends React.Component {
     return (
 
       <div className='search-result'>
-        <h3 className='lot-name'>{lot.name}</h3>
+        <h3 className='lot-name'>
+          <i className='fa fa-map-pin'></i>
+          {lot.name}
+        </h3>
         <p className='lot-address'>{lot.address}</p>
         <p className='lot-description'>{lot.description}</p>
 
