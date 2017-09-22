@@ -3,12 +3,12 @@
 header {
   margin: 0;
   padding-bottom: 20px;
-  font-size: 5vw;
+  // font-size: 5vw;
   height: 10vw;
   background: $color-primary;
   box-sizing: border-box;
-  display: flex;
-  align-items: center;
+  // display: flex;
+  // align-items: center;
 
   & button {
     background: $dark-gray;
@@ -37,24 +37,27 @@ header {
 
 #header-title-container {
   margin: 0 auto;
-  flex: 1;
-  text-align: center;
+  // flex: 1;
+  // text-align: center;
+  margin-left: 35vw;
 }
+
 
 #header-title {
   font-family: $font-logo;
   color: $white;
-  font-size: 1.4em;
+  font-size: 2em;
   text-align: center;
   margin-left: 10vw;
-  margin-top: 3.5vw;
+  margin-top: 2.1vw;
   display: inline-block;
   user-select: none;
   cursor: default;
+  position: absolute;
 }
 
 #header-logo {
-  margin-top: 15px;
+  margin-top: .1vw;
   height: 8vw;
   width: 8vw;
   display: inline-block;
