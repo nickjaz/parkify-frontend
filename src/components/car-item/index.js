@@ -41,12 +41,12 @@ class CarItem extends React.Component {
       <div className='car-item'>
         {util.renderIf(!this.state.updating,
           <div>
-            <h3>{car.make} {car.model}</h3>
+            <h3><i className='fa fa-car'></i> {car.make} {car.model}</h3>
             <button
               className='remove'
               onClick={this.handleDelete}>X</button>
-            <p>color: {car.color}</p>
-            <p>plate #: {car.licensePlate}</p>
+            <p>{car.color}</p>
+            <p>#{car.licensePlate}</p>
             <button
               className='edit'
               onClick={() => this.setState({ updating: true })}>Edit</button>
