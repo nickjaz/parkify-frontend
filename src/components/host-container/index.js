@@ -3,7 +3,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import * as util from '../../lib/utilities.js';
 import PropTypes from 'prop-types';
-
+import Banner from '../banner';
 import {fetchLotsRequest, createLotRequest} from '../../actions/host-lot-actions.js';
 import HostLotForm from '../host-lot-form';
 import HostLotItem from '../host-lot-item';
@@ -22,9 +22,7 @@ class HostContainer extends React.Component {
     return (
       <div>
         <div className='host-dashboard'>
-          <div className='cool-bar'>
-            <p>solving the city&#39;s parking problem</p>
-          </div>
+          <Banner />
           <div className='host-content'>
             <h2><i className='fa fa-plus-square'></i> Lots</h2>
             <h4>Rent out your parking spots with Parkify!</h4>

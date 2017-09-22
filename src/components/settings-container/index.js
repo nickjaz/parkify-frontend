@@ -25,7 +25,6 @@ class SettingsContainer extends React.Component {
         <Banner />
         <div className='settings-content'>
           <h2><i className='fa fa-cog'></i> Settings</h2>
-
           <h3><i className='fa fa-id-card-o'></i> Update your profile</h3>
           <ProfileForm />
 
