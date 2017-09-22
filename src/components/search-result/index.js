@@ -21,7 +21,7 @@ class SearchResult extends React.Component {
       <div className='search-result'>
         <button className='search-result-main' onClick={() => this.setState({ reserving: !this.state.reserving })}>
           <div className='search-result-content'>
-            <h3 className='lot-name'>{lot.name}</h3>
+            <h3 className='lot-name'><i className='fa fa-map-pin'></i> {lot.name}</h3>
             <p className='lot-address'>{lot.address}</p>
             {/* <p className='lot-description'>{lot.description}</p> */}
           </div>
