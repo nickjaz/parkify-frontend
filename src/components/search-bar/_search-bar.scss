@@ -1,0 +1,9 @@
+.search-bar {
+  display: flex;
+  align-items: center;
+
+  & input[name=search] {
+    flex: 1;
+    font-size: 3vw;
+  }
+}

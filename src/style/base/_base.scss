@@ -43,7 +43,7 @@ form {
   transition: $transition;
 
   input {
-    width: 95%;
+    width: 100%;
     padding: $gutter-sm;
     background: $white;
     border-radius: $border-radius;
@@ -58,6 +58,10 @@ form {
     }
   }
 
+  input[type=datetime-local] {
+    font-size: 3.5vw;
+  }
+
   button {
     border: $color-primary solid 2px;
     border-radius: $border-radius;
@@ -67,6 +71,7 @@ form {
     outline: none;
     margin: $gutter-sm;
     font-size: 3vw;
+    box-sizing: border-box;
 
     &:hover {
       background: $color-primary;
