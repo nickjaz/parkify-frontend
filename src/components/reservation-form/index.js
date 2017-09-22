@@ -28,10 +28,13 @@ class ReservationForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     let reservation = {...this.state};
+    let {lot} = this.props;
     reservation.startTime = new Date(Date.parse(reservation.startTime + ':00'));
     reservation.endTime = new Date(Date.parse(reservation.endTime + ':00'));
-    reservation.lotID = this.props.lot._id;
-    reservation.hostID = this.props.lot.userID;
+    reservation.lotID = lot._id;
+    reservation.hostID = lot.userID;
+    reservation.lotName = lot.name;
+    reservation.lotAddress = lot.address;
     this.props.createReservation(reservation)
     .then(() => this.props.stopReserving());
   }

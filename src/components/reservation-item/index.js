@@ -11,9 +11,11 @@ class ReservationItem extends React.Component {
 
     return (
       <div className='reservation-item'>
-        <span>{transaction.startTime}</span>
-        <span>{transaction.endTime}</span>
-        <span>{transaction.price}</span>
+        <h3>{transaction.lotName}</h3>
+        <p>{transaction.lotAddress}</p>
+        <br></br>
+        <p>Start: {transaction.startTime.toString().split(':00')[0]}</p>
+        <p>End: {transaction.endTime.toString().split(':00')[0]}</p>
       </div>
     );
   }
@@ -23,4 +25,6 @@ ReservationItem.propTypes = {
   transaction: PropTypes.object
 };
 
+
+export default ReservationItem;
 

@@ -11,15 +11,14 @@ class ReservationContainer extends React.Component {
     super(props);
   }
 
-  componentWillMount() {
-    return this.props.fetchProfile();
-  }
-
   render() {
+    let {transactions} = this.props;
+
     return (
       <div>
+        <h2>Your reserverations</h2>
         <ul>
-          {this.props.profile.transactions.map((transaction, index) =>
+          {transactions.map((transaction, index) =>
             <li key={index}>
               <ReservationItem transaction={transaction}/>
             </li>
@@ -32,18 +31,12 @@ class ReservationContainer extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    profile: state.profile
+    transactions: state.profile.transactions
   };
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  fetchProfile: () => dispatch(fetchProfileRequest())
-});
-
 ReservationContainer.PropTypes = {
-  profile: PropTypes.object,
-  transactions: PropTypes.array,
-  fetchProfile: PropTypes.func
+  transactions: PropTypes.array
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ReservationContainer);
+export default connect(mapStateToProps, undefined)(ReservationContainer);
