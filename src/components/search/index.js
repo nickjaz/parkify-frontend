@@ -6,6 +6,7 @@ import Banner from '../banner';
 import SearchBar from '../search-bar';
 import SearchResult from '../search-result';
 import {fetchProfileRequest} from '../../actions/profile-actions.js';
+import {clearSearch} from '../../actions/search-actions.js';
 
 class Search extends React.Component {
   componentDidMount() {
@@ -14,6 +15,9 @@ class Search extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    this.props.clearSearch();
+  }
 
   render() {
     return (
@@ -33,7 +37,8 @@ class Search extends React.Component {
 Search.propTypes = {
   nearbyLots: PropTypes.array,
   profile: PropTypes.object,
-  fetchProfile: PropTypes.func
+  fetchProfile: PropTypes.func,
+  clearSearch: PropTypes.func
 };
 
 const mapStateToProps = (state) => ({
@@ -42,7 +47,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchProfile: () => dispatch(fetchProfileRequest())
+  fetchProfile: () => dispatch(fetchProfileRequest()),
+  clearSearch: () => dispatch(clearSearch())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Search);
