@@ -1,3 +1,4 @@
+import './_host-dashboard.scss';
 import React from 'react';
 import {connect} from 'react-redux';
 import * as util from '../../lib/utilities.js';
@@ -24,24 +25,25 @@ class HostContainer extends React.Component {
           <div className='cool-bar'>
             <p>solving the city&#39;s parking problem</p>
           </div>
-
-          <h2><i className='fa fa-plus-square'></i> Lots</h2>
-          <p>Rent out your parking spots with Parkify!</p>
-          <HostLotForm
-            buttonText='Add Lot'
-            onComplete={(lot) => {
-              return this.props.createLot(lot)
-              .catch(console.error);
-            }}
-          />
+          <div className='host-content'>
+            <h2><i className='fa fa-plus-square'></i> Lots</h2>
+            <p>Rent out your parking spots with Parkify!</p>
+            <HostLotForm
+              buttonText='Add Lot'
+              onComplete={(lot) => {
+                return this.props.createLot(lot)
+                .catch(console.error);
+              }}
+            />
+          </div>
+          <ul>
+            {this.props.lots.map((lot, index) =>
+              <li className='lots-li'key={index}>
+                <HostLotItem lot={lot} />
+              </li>
+            )}
+          </ul>
         </div>
-        <ul>
-          {this.props.lots.map((lot, index) =>
-            <li className='lots-li'key={index}>
-              <HostLotItem lot={lot} />
-            </li>
-          )}
-        </ul>
       </div>
     );
   }

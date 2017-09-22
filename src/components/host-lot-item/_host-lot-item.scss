@@ -3,30 +3,30 @@
 .host-lot-form {
   position: relative;
 
+  input {
+    margin: $gutter-sm / 2 0;
+    font-size: 3.5vw;
+  }
+
   h3 {
     display: inline-block;
     font-size: 4vw;
-    margin-left: 2.5%;
-    width: 75%;
+    margin: 0;
   }
 
   button {
     border-radius: $border-radius;
-    // padding: ($gutter-sm / 2) $gutter-sm;
+    padding: ($gutter-sm / 2) $gutter-sm;
     background: $white;
     outline: none;
-    font-size: 2vw;
+    font-size: 3vw;
   }
 
   .remove {
     color: $error;
     border: 2px solid $error;
-    margin-left: auto;
-    margin-bottom: 2%;
-    position: absolute;
-    top: 0;
-    right: 35px;
-    float: right;
+    padding: $gutter-sm/2 $gutter-sm;
+    
 
     &:hover {
       background: $error;
@@ -34,16 +34,20 @@
     }
   }
 
-  .edit {
-    color: $edit;
-    border: 2px solid $edit;
-    position: absolute;
-    // right: 0;
-    bottom: 0;
-
-    &:hover {
-      background: $edit;
-      color: $white;
-    }
+  .spacer {
+    flex: 1;
   }
+}
+
+.lot-update-header {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  padding: 0;
+  width: 100%;
+}
+
+button.lot-update-header {
+  background: transparent;
 }

@@ -42,22 +42,20 @@ export class HostLotItem extends React.Component {
 
     return (
       <div className='host-lot-form'>
-        {util.renderIf(!updating,
-          <div>
-            <h3 className='lot-name'>{lot.name}</h3>
-            <button className='remove' onClick={this.handleDelete}>X</button>
-            <button className='edit' onClick={() => {
-              this.setState({ updating: true });
-              console.log('before the reveal LOT:', lot);
-            }}>Edit</button>
-          </div>
-        )}
+        <button className='lot-update-header' onClick={() => {
+          this.setState({ updating: !this.state.updating });
+        }}>
+          <h3 className='lot-name'>{lot.name}</h3>
+          <p>{this.state.updating ? '▲' : '▼'}</p>
+          <div className='spacer'></div>
+          <button className='remove' onClick={this.handleDelete}>X</button>
+        </button>
 
         {util.renderIf(updating,
           <div>
             <HostLotForm
               lot={this.props.lot}
-              buttonText='update'
+              buttonText='Update'
               onComplete={this.handleUpdate}
             />
           </div>
