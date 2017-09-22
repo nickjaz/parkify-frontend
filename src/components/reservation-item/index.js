@@ -11,7 +11,7 @@ class ReservationItem extends React.Component {
 
     return (
       <div className='reservation-item'>
-        <h3>{transaction.lotName}</h3>
+        <h3><i className='fa fa-circle-o'></i>{transaction.lotName}</h3>
         <p>{transaction.lotAddress}</p>
         <br></br>
         <p>Start: {transaction.startTime.toString().split(':00')[0]}</p>
