@@ -3,11 +3,11 @@
 header {
   margin: 0;
   padding-bottom: 20px;
-  font-size: 5vw;
+  // font-size: 5vw;
   height: 10vw;
   background: $color-primary;
   box-sizing: border-box;
-  display: flex;
+  // display: flex;
   align-items: center;
 
   & button {
@@ -41,16 +41,18 @@ header {
   text-align: center;
 }
 
+
 #header-title {
   font-family: $font-logo;
   color: $white;
-  font-size: 1.4em;
+  font-size: 2em;
   text-align: center;
   margin-left: 10vw;
-  margin-top: 3.5vw;
+  margin-top: 4.1vw;
   display: inline-block;
   user-select: none;
   cursor: default;
+  position: absolute;
 }
 
 #header-logo {
