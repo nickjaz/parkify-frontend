@@ -40,15 +40,15 @@ class HostLotForm extends React.Component {
         <input
           name='name'
           type='text'
-          placeholder='name'
+          placeholder='Lot Name'
           value={this.state.name}
           onChange={this.handleHostLotFormChange}
         />
 
         <input
-          name='description'
+          name='descriptions'
           type='text'
-          placeholder='description'
+          placeholder='Description'
           value={this.state.description}
           onChange={this.handleHostLotFormChange}
         />
@@ -56,7 +56,7 @@ class HostLotForm extends React.Component {
         <input
           name='address'
           type='text'
-          placeholder='address'
+          placeholder='Lot Address'
           value={this.state.address}
           onChange={this.handleHostLotFormChange}
         />
