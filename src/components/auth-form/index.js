@@ -22,6 +22,7 @@ class AuthForm extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.redirectToSignup = this.redirectToSignup.bind(this);
+    this.redirectToLogin = this.redirectToLogin.bind(this);
   }
 
   handleChange(e) {
@@ -51,6 +52,11 @@ class AuthForm extends React.Component {
   redirectToSignup(e) {
     e.preventDefault();
     this.props.history.push('/welcome/signup');
+  }
+
+  redirectToLogin(e) {
+    e.preventDefault();
+    this.props.history.push('/welcome/login');
   }
 
   render() {
@@ -89,6 +95,10 @@ class AuthForm extends React.Component {
 
         {utilities.renderIf(this.props.auth === 'login',
           <button className='sign-up-button' onClick={this.redirectToSignup}>New user? Sign up here.</button>
+        )}
+
+        {utilities.renderIf(this.props.auth === 'signup',
+          <button className='sign-up-button' onClick={this.redirectToLogin}>Returning user? Log in here.</button>
         )}
         <div className='separator'></div>
 
