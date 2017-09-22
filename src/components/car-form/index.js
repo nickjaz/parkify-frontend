@@ -70,7 +70,7 @@ class CarForm extends React.Component {
           <input
             name='licensePlate'
             type='text'
-            placeholder='License Number'
+            placeholder='License Plate #'
             value={this.state.licensePlate}
             onChange={this.handleChange}
           />

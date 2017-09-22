@@ -3,6 +3,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import * as util from '../../lib/utilities.js';
+import Banner from '../banner';
+import {fetchProfileRequest} from '../../actions/profile-actions.js';
 
 import ReservationItem from '../reservation-item';
 
@@ -15,17 +17,20 @@ class ReservationContainer extends React.Component {
     let {transactions} = this.props;
 
     return (
-      <div className='reservation-container'>
-        <h2>
-          <i className='fa fa-calendar'></i> Reserverations
-        </h2>
-        <ul>
-          {transactions.map((transaction, index) =>
-            <li key={index}>
-              <ReservationItem transaction={transaction}/>
-            </li>
-          )}
-        </ul>
+      <div>
+        <Banner />
+        <div className='reservation-container'>
+          <h2>
+            <i className='fa fa-calendar'></i> Reserverations
+          </h2>
+          <ul>
+            {transactions.map((transaction, index) =>
+              <li key={index}>
+                <ReservationItem transaction={transaction}/>
+              </li>
+            )}
+          </ul>
+        </div>
       </div>
     );
   }

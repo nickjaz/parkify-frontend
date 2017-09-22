@@ -2,6 +2,7 @@ import './_search.scss';
 import React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
+import Banner from '../banner';
 import SearchBar from '../search-bar';
 import SearchResult from '../search-result';
 import {fetchProfileRequest} from '../../actions/profile-actions.js';
@@ -17,11 +18,9 @@ class Search extends React.Component {
   render() {
     return (
       <div className='search'>
-        <div className='cool-bar'>
-          <p>solving the city&#39;s parking problem</p>
-        </div>
+        <Banner />
         <h2 className='search-header'><i className='fa fa-search'></i> Search </h2>
-        <p className='search-tagline'>Need a place to park? Enter an address to find spots nearby!</p>
+        <h4 className='search-tagline'>Need a place to park? Enter an address to find spots nearby!</h4>
         <SearchBar />
         <div className='search-results'>
           {this.props.nearbyLots ? this.props.nearbyLots.map(lot => <SearchResult key={lot._id} lot={lot} />) : undefined}
