@@ -1,6 +1,8 @@
+import './_reservation-form.scss';
 import React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
+import superagent from 'superagent';
 
 import {createReservationRequest} from '../../actions/reservation-actions.js';
 
@@ -8,8 +10,10 @@ class ReservationForm extends React.Component {
   constructor(props) {
     super(props);
 
-    var now = new Date().toISOString().slice(0, 16);
-
+    var now = new Date();
+    now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+    now = now.toISOString().slice(0, 16);
+    
     this.state = {
       startTime: now,
       endTime: now,
@@ -22,7 +26,36 @@ class ReservationForm extends React.Component {
 
   handleChange(e) {
     let {name, value} = e.target;
-    this.setState({ [name]: value });
+
+    if (!value) {
+      this.setState({ [name]: value });
+      return;
+    }
+
+    let startTimeString = name ==='startTime' ? value + ':00': this.state.startTime + ':00';
+    let endTimeString = name ==='endTime' ? value + ':00' : this.state.endTime + ':00';
+
+    let startTime = new Date(Date.parse(startTimeString));
+    let endTime = new Date(Date.parse(endTimeString));
+
+    if (!isNaN(startTime.getTime()) && !isNaN(endTime.getTime())) {
+      startTime =  startTime.toISOString();
+      endTime =  endTime.toISOString();
+      
+      return superagent.get(`${__API_URL__}/price`)
+      .set('Authorization', `Bearer ${this.props.auth}`)
+      .query({ startTime })
+      .query({ endTime })
+      .then(response => {
+        this.setState({ 
+          [name]: value,
+          price: response.body.price
+        });
+      });
+    }
+    else {
+      this.setState({ [name]: value });
+    }
   }
 
   handleSubmit(e) {
@@ -59,8 +92,10 @@ class ReservationForm extends React.Component {
             onChange={this.handleChange}
             placeholder='End time'
           />
-
-          <button type='submit'>Reserve</button>
+          <div className='reservation-bar'>
+            <p className='price'>${this.state.price}</p>
+            <button type='submit'>Reserve</button>
+          </div>
         </form>
       </div>
     );
@@ -83,7 +118,8 @@ ReservationForm.propTypes = {
   reservation: PropTypes.object,
   createReservation: PropTypes.func,
   lot: PropTypes.object,
-  stopReserving: PropTypes.func
+  stopReserving: PropTypes.func,
+  auth: PropTypes.string,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ReservationForm);

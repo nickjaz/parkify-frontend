@@ -1,0 +1,16 @@
+@import '../../style/lib/vars';
+
+.reservation-form input {
+  margin: ($gutter-sm / 2) 0;
+}
+
+.reservation-bar {
+  display: flex;
+  align-items: center;
+}
+
+.price {
+  flex: 1;
+  font-size: 4vw;
+  color: $color-primary;
+}

@@ -1,3 +1,4 @@
+import './_search-bar.scss';
 import React from 'react';
 import {connect} from 'react-redux';
 import {searchRequest} from '../../actions/search-actions.js';
@@ -30,7 +31,7 @@ class SearchBar extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form className='search-bar' onSubmit={this.handleSubmit}>
         <input
           name='search'
           type='text'

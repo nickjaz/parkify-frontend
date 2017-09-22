@@ -19,14 +19,14 @@ class SearchResult extends React.Component {
     return (
 
       <div className='search-result'>
-        <h3 className='lot-name'>{lot.name}</h3>
-        <p className='lot-address'>{lot.address}</p>
-        <p className='lot-description'>{lot.description}</p>
-
-        {util.renderIf(!this.state.reserving,
-          <button className='reserve' onClick={() => this.setState({ reserving: true })}>Reserve</button>
-        )}
-
+        <button className='search-result-main' onClick={() => this.setState({ reserving: !this.state.reserving })}>
+          <div className='search-result-content'>
+            <h3 className='lot-name'>{lot.name}</h3>
+            <p className='lot-address'>{lot.address}</p>
+            {/* <p className='lot-description'>{lot.description}</p> */}
+          </div>
+          <p>{this.state.reserving ? '▲' : '▼'}</p>
+        </button>
         {util.renderIf(this.state.reserving,
           <ReservationForm lot={lot} stopReserving={() => {
             this.setState({ reserving: false});
