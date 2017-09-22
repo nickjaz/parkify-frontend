@@ -10,7 +10,7 @@ class GoogleOAuth extends React.Component {
     let responseTypeQuery = 'response_type=code';
     let scopeQuery = 'scope=openid%20profile%20email';
     let promptQuery = 'prompt=consent';
-    let redirectURIQuery = 'redirect_uri=http://localhost:3000/oauth/google/code';
+    let redirectURIQuery = `redirect_uri=${__GOOGLE_REDIRECT_URI__}`;
     let formattedURI = `${AUTH_URL}?${clientIDQuery}&${responseTypeQuery}&${scopeQuery}&${promptQuery}&${redirectURIQuery}`;
 
     return (

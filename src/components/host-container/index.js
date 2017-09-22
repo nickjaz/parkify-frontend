@@ -37,7 +37,7 @@ class HostContainer extends React.Component {
         </div>
         <ul>
           {this.props.lots.map((lot, index) =>
-            <li key={index}>
+            <li className='lots-li'key={index}>
               <HostLotItem lot={lot} />
             </li>
           )}
