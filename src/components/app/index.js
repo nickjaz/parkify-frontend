@@ -6,9 +6,9 @@ import PropTypes from 'prop-types';
 import Search from '../search';
 import SettingsContainer from '../settings-container';
 import LandingContainer from '../landing-container';
+import ReservationContainer from '../reservation-container';
 import {setToken} from '../../actions/auth-actions.js';
 import {fetchProfileRequest} from '../../actions/profile-actions.js';
-import * as util from '../../lib/utilities.js';
 import Header from '../header';
 
 import HostContainer from '../host-container';
@@ -29,6 +29,7 @@ class App extends React.Component {
             <Route exact path='/search' component={Search} />
             <Route exact path='/settings' component={SettingsContainer} />
             <Route exact path='/addalot' component={HostContainer} />
+            <Route exact path='/reservation' component={ReservationContainer} />
           </main>
         </div>
       </BrowserRouter>

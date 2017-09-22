@@ -32,6 +32,15 @@ class Navbar extends React.Component {
           <i className='fa fa-home'></i> Lots
         </span></li></Link>
 
+        <Link to='/reservation'>
+          <li>
+            <span>
+              <i className='PLACEHOLDER'></i>
+              Lots
+            </span>
+          </li>
+        </Link>
+
         <Link to='/settings'><li><span>
           <i className='fa fa-cog'></i> Settings
         </span></li></Link>
