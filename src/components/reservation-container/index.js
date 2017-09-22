@@ -1,3 +1,4 @@
+import './_reservation-container.scss';
 import React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
@@ -18,16 +19,18 @@ class ReservationContainer extends React.Component {
     return (
       <div>
         <Banner />
-        <h2>
-          <i className='fa fa-calendar'></i> Your reserverations
-        </h2>
-        <ul>
-          {transactions.map((transaction, index) =>
-            <li key={index}>
-              <ReservationItem transaction={transaction}/>
-            </li>
-          )}
-        </ul>
+        <div className='reservation-container'>
+          <h2>
+            <i className='fa fa-calendar'></i> Reserverations
+          </h2>
+          <ul>
+            {transactions.map((transaction, index) =>
+              <li key={index}>
+                <ReservationItem transaction={transaction}/>
+              </li>
+            )}
+          </ul>
+        </div>
       </div>
     );
   }
