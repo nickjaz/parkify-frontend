@@ -1,0 +1,13 @@
+.reservation-item {
+  .reservation-label {
+    font-weight: bold;
+  }
+  
+  p.reservation-label {
+    font-weight: bold !important;
+  }
+  
+  p.reservation-time {
+    margin-left: 3vw !important;
+  }
+}
