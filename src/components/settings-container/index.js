@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import * as util from '../../lib/utilities.js';
-
+import Banner from '../banner';
 import {createCarRequest, fetchCarsRequest} from '../../actions/car-actions.js';
 import ProfileForm from '../profile-form';
 import CarForm from '../car-form';
@@ -21,9 +21,7 @@ class SettingsContainer extends React.Component {
   render() {
     return (
       <div className='settings-container'>
-        <div className='cool-bar'>
-          <p>solving the city&#39;s parking problem</p>
-        </div>
+        <Banner />
         <h2><i className='fa fa-cog'></i> Settings</h2>
 
         <h3><i className='fa fa-id-card-o'></i> Update your profile</h3>
