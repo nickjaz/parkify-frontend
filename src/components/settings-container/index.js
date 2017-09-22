@@ -1,3 +1,4 @@
+import './_settings-container.scss';
 import React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
@@ -23,28 +24,28 @@ class SettingsContainer extends React.Component {
       <div className='settings-container'>
         <Banner />
         <h2><i className='fa fa-cog'></i> Settings</h2>
+          <h3><i className='fa fa-id-card-o'></i> Update your profile</h3>
+          <ProfileForm />
 
-        <h3><i className='fa fa-id-card-o'></i> Update your profile</h3>
-        <ProfileForm />
+          <h3><i className='fa fa-car'></i> Add a car</h3>
+          <CarForm
+            buttonText='Add'
+            onComplete={car => {
+              return this.props.createCar(car)
+              .catch(console.error);
+            }}
+          />
 
-        <h3><i className='fa fa-car'></i> Add a car</h3>
-        <CarForm
-          buttonText='Add'
-          onComplete={car => {
-            return this.props.createCar(car)
-            .catch(console.error);
-          }}
-        />
-
-        <div className='car-list'>
-          <h3>Your saved cars</h3>
-          <ul>
-            {this.props.profile.cars.map((car, index) =>
-              <li key={index}>
-                <CarItem car={car} />
-              </li>
-            )}
-          </ul>
+          <div className='car-list'>
+            <h3>Your saved cars</h3>
+            <ul>
+              {this.props.profile.cars.map((car, index) =>
+                <li key={index}>
+                  <CarItem car={car} />
+                </li>
+              )}
+            </ul>
+          </div>
         </div>
       </div>
     );
