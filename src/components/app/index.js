@@ -8,7 +8,6 @@ import SettingsContainer from '../settings-container';
 import LandingContainer from '../landing-container';
 import ReservationContainer from '../reservation-container';
 import {setToken} from '../../actions/auth-actions.js';
-import {fetchProfileRequest} from '../../actions/profile-actions.js';
 import Header from '../header';
 
 import HostContainer from '../host-container';
@@ -43,8 +42,7 @@ let mapStateToProps = (state) => ({
 });
 
 let mapDispatchToProps = (dispatch) => ({
-  setToken: (token) => dispatch(setToken(token)),
-  fetchProfile: () => dispatch(fetchProfileRequest())
+  setToken: (token) => dispatch(setToken(token))
 });
 
 App.propTypes = {
