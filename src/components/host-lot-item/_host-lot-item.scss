@@ -12,7 +12,6 @@
 
   button {
     border-radius: $border-radius;
-    // padding: ($gutter-sm / 2) $gutter-sm;
     background: $white;
     outline: none;
     font-size: 2vw;
@@ -27,6 +26,7 @@
     top: 0;
     right: 35px;
     float: right;
+    padding: $button-pad-sm;
 
     &:hover {
       background: $error;
@@ -38,8 +38,8 @@
     color: $edit;
     border: 2px solid $edit;
     position: absolute;
-    // right: 0;
     bottom: 0;
+    padding: $button-pad-sm;
 
     &:hover {
       background: $edit;

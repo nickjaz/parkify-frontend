@@ -15,7 +15,7 @@ class ReservationContainer extends React.Component {
     return (
       <div>
         <h2>
-          <i className='fa fa-calendar'></i> Your reserverations
+          <i className='fa fa-calendar'></i> Your reservations
         </h2>
         <ul>
           {transactions.map((transaction, index) =>

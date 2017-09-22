@@ -17,9 +17,9 @@
   }
 
   button {
-    // border: $color-primary solid 2px;
+    border: $color-primary solid 2px;
     border-radius: 3px;
-    padding: ($gutter-sm / 3) $gutter-sm;
+    padding: $button-pad-sm;
     background: $white;
     color: $color-primary;
     outline: none;

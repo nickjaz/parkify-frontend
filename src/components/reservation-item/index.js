@@ -1,3 +1,4 @@
+import './_reservation-item.scss';
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -11,7 +12,7 @@ class ReservationItem extends React.Component {
 
     return (
       <div className='reservation-item'>
-        <h3><i className='fa fa-map-pin'></i>    {transaction.lotName}</h3>
+        <h3><i className='fa fa-map-pin'></i>     {transaction.lotName}</h3>
         <p>{transaction.lotAddress}</p>
         <br></br>
         <p>Start: {transaction.startTime.toString().split(':00')[0]}</p>

@@ -22,9 +22,14 @@ class Search extends React.Component {
         <h2><i className='fa fa-search'></i> Search </h2>
         <h4>Need a place to park? Enter an address to find spots nearby!</h4>
         <SearchBar />
-        <div className='search-results'>
-          {this.props.nearbyLots ? this.props.nearbyLots.map(lot => <SearchResult key={lot._id} lot={lot} />) : undefined}
-        </div>
+        <ul className='search-results'>
+          {this.props.nearbyLots ? this.props.nearbyLots.map((lot, index) => 
+            <li key={index}>
+              <SearchResult lot={lot}
+              />
+            </li>)
+            : undefined }
+        </ul>
       </div>
     );
   }
