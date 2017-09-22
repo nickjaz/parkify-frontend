@@ -36,7 +36,7 @@ class Navbar extends React.Component {
           <li>
             <span>
               <i className='PLACEHOLDER'></i>
-              Lots
+              Reservations
             </span>
           </li>
         </Link>

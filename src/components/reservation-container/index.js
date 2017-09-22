@@ -12,8 +12,7 @@ class ReservationContainer extends React.Component {
   }
 
   componentWillMount() {
-    this.props.fetchProfile()
-    .catch(util.logError);
+    return this.props.fetchProfile();
   }
 
   render() {
@@ -37,13 +36,13 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch) => ({
   fetchProfile: () => dispatch(fetchProfileRequest())
-};
+});
 
 ReservationContainer.PropTypes = {
-  profile: PropTypes.obj,
-  transactions: PropTypes.arr,
+  profile: PropTypes.object,
+  transactions: PropTypes.array,
   fetchProfile: PropTypes.func
 };
 
